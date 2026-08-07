@@ -30,7 +30,7 @@ export function Hero() {
       <div className="hero-rail hero-rail-left" aria-hidden="true"><span>DESIGN</span><i/><span>DEVELOP</span><i/><span>CONVERT</span></div>
       <div className="shell relative z-10 grid min-h-[900px] items-center gap-16 pb-24 pt-32 lg:min-h-[860px] lg:grid-cols-[.95fr_1.05fr] lg:gap-10 lg:pb-20 lg:pt-28">
         <div className="hero-copy-block">
-          <div className="hero-kicker"><Sparkles size={14}/><span>Web design + development</span><i>Independent studio</i></div>
+          <div className="hero-kicker"><Sparkles size={14}/><span>Web design + development</span></div>
           <h1 className="hero-mega-title">
             <span className="hero-line"><span>Make your website</span></span>
             <span className="hero-line"><span className="hero-stroke">impossible to ignore.</span></span>
