@@ -8,10 +8,10 @@ import { SectionHeading } from "./section-heading";
 type Status = "idle" | "loading" | "success" | "error";
 
 const budgetOptions = [
-  "$150–$200 — Landing Page",
-  "$350–$700 — 7–9 Page Business Website",
-  "$900–$1,300 — 12–15 Page Website + Dashboard",
-  "$1,500–$2,500 — Advanced Website + Chatbot",
+  "$150–$200 — Conversion Launch",
+  "$350–$700 — Business Authority",
+  "$900–$1,300 — Growth Platform",
+  "$1,500–$2,500 — Intelligent Scale",
   "Not sure yet",
 ];
 

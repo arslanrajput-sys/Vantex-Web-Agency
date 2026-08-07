@@ -6,7 +6,7 @@ export const faqs = [
   ["Can you help with SEO?","Every project includes sound technical and on-page foundations. Deeper keyword research, local landing pages, and ongoing SEO campaigns can be scoped separately."],
   ["Do you provide hosting?","We can recommend the right hosting setup and handle deployment. Hosting costs are kept in your name so you retain ownership and control."],
   ["What platforms do you use?","We select the simplest suitable platform for the job, including modern custom builds with Next.js and easy-to-manage content systems when your team needs editing access."],
-  ["How many revisions are included?","The Landing Page includes two revision rounds. Business Website and Dashboard Website packages include three. Advanced Website projects receive a tailored review and approval plan in the proposal."],
+  ["How many revisions are included?","Conversion Launch includes two revision rounds. Business Authority and Growth Platform include three. Intelligent Scale projects receive a tailored review and approval plan in the proposal."],
   ["Can you maintain the website after launch?","Yes. Optional care plans can cover content updates, performance checks, technical maintenance, and ongoing improvements."],
   ["How do we get started?","Share a few details in the form below. We will review your goals, arrange a free fit call, and send a clear proposal if the project is a good match."],
 ] as const;
