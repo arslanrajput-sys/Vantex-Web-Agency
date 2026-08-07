@@ -1,6 +1,6 @@
 # VantexWeb Agency Website
 
-A production-ready VantexWeb landing page built with Next.js App Router, TypeScript, Tailwind CSS, and Lucide icons. The project exports to static HTML and deploys natively to **Cloudflare Pages**, with the contact endpoint running as a **Cloudflare Pages Function**.
+A production-ready VantexWeb agency site built with Next.js App Router, TypeScript, and Tailwind CSS. Next.js generates a static site in `out/`; Cloudflare Workers Static Assets serves it globally, while the Worker handles `/api/contact`.
 
 ## Local development
 
@@ -11,94 +11,70 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Cloudflare production build
+## Cloudflare Worker Builds settings
+
+This repository is configured for the Cloudflare **Worker Builds** screen shown in the dashboard. Use these exact values:
+
+| Cloudflare setting | Value |
+| --- | --- |
+| Production branch | `main` |
+| Root directory | `/` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+No output-directory field is needed. `wrangler.jsonc` already points Cloudflare to `./out` through `assets.directory`.
+
+The build and deployment sequence is:
 
 ```bash
 npm run build
+npx wrangler deploy
 ```
 
-The complete static website is generated in `out/`. The build also copies Cloudflare’s `_headers` and `_routes.json` files into that directory.
+The repository pins Node.js `22.16.0` in `.node-version`, matching the version detected in the Cloudflare build log.
 
-The repository pins Node.js `22.16.0` in `.node-version`, matching Cloudflare Pages’ current v3 build image.
+## How deployment works
 
-To test the generated site and Pages Function together in Cloudflare’s local runtime:
+- `npm run build` runs `next build` and creates the fully static site in `out/`.
+- `npx wrangler deploy` uploads `worker.ts` and the `out/` static assets as one Worker deployment.
+- Static page and asset requests are served by Cloudflare Static Assets.
+- Only `/api/*` is routed through the Worker first.
+- `/api/contact` validates and forwards contact requests without exposing the webhook URL to browser code.
+
+To test the same runtime locally:
 
 ```bash
 npm run preview:cloudflare
 ```
 
-The preview is normally available at [http://localhost:8788](http://localhost:8788).
+Wrangler prints the local preview URL, normally [http://localhost:8787](http://localhost:8787).
 
-## Deploy through Cloudflare Pages Git integration
+## Cloudflare variables and secrets
 
-Use the **Pages** workflow rather than the Next.js Workers/OpenNext preset:
+Open **Workers & Pages > vantex-web-agency > Settings > Variables and Secrets**.
 
-1. Open **Workers & Pages** in Cloudflare.
-2. Select **Create application → Pages → Connect to Git**.
-3. Select `arslanrajput-sys/Vantex-Web-Agency`.
-4. Configure:
+Add this encrypted runtime secret:
 
-| Cloudflare setting | Value |
-| --- | --- |
-| Production branch | `main` |
-| Framework preset | `Next.js (Static HTML Export)` or `None` |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Root directory | `/` |
+| Variable | Purpose | Required |
+| --- | --- | --- |
+| `CONTACT_FORM_ENDPOINT` | HTTPS Formspree endpoint or another form webhook | Required for contact-form delivery |
 
-Cloudflare Pages Git integration deploys `out/` automatically; it does not need a separate deploy command.
+Add these as build variables when their production values differ from the defaults:
 
-## Deploy with Wrangler
+| Variable | Purpose | Required |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical production URL and sitemap base | Recommended |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Public email in the page and structured data | Recommended |
 
-The repository includes `wrangler.jsonc` with `pages_build_output_dir: "./out"`.
+Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser output. Keep `CONTACT_FORM_ENDPOINT` encrypted.
 
-For a brand-new account/project, create the Pages project once if Wrangler asks:
-
-```bash
-npx wrangler pages project create vantex-web-agency --production-branch main
-```
-
-```bash
-npm run build
-npm run deploy
-```
-
-If you use the application screen shown in Cloudflare’s newer Git build interface, use:
-
-| Field | Value |
-| --- | --- |
-| Build command | `npm run build` |
-| Deploy command | `npm run deploy` |
-
-Do not use the generic `npx wrangler deploy` command for this Pages configuration. The project script runs `wrangler pages deploy`.
-
-## Contact form setup
-
-The browser submits to `/api/contact`, implemented at `functions/api/contact.ts`. Cloudflare automatically deploys that file as a Pages Function. The function validates the request and forwards it to an HTTPS form webhook without exposing the endpoint in browser code.
-
-1. Create an endpoint with Formspree or another HTTPS form service.
-2. In Cloudflare, open **Workers & Pages → vantex-web-agency → Settings → Variables and Secrets**.
-3. Add `CONTACT_FORM_ENDPOINT` as an encrypted secret.
-4. Use the production and preview environments as needed.
-
-For local Pages preview, create a `.dev.vars` file:
+For local Worker testing, create `.dev.vars`:
 
 ```text
 CONTACT_FORM_ENDPOINT=https://your-secure-form-endpoint.example
 ```
 
-`.dev.vars` is ignored by Git. Without this value, `/api/contact` deliberately returns a setup message instead of silently losing the inquiry.
-
-## Build-time environment variables
-
-Add these under the Cloudflare project’s build variables when using custom production values:
-
-| Variable | Purpose | Required |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical production URL and sitemap base | Recommended |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Public email in the page and schema | Recommended |
-
-Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser output. Keep `CONTACT_FORM_ENDPOINT` secret.
+`.dev.vars` is ignored by Git. Without this secret, `/api/contact` deliberately returns a setup message instead of silently losing a lead.
 
 ## Content updates
 
@@ -115,20 +91,18 @@ Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser out
 ## Deployment structure
 
 ```text
-app/                         Next.js pages and static metadata routes
-components/                  Reusable interface components
-functions/api/contact.ts     Cloudflare Pages Function
-public/_headers              Cloudflare security and cache headers
-public/_routes.json          Runs Functions only for /api/*
-next.config.mjs              Static-export configuration
-wrangler.jsonc               Cloudflare Pages configuration
-out/                         Generated deployable artifact
+app/                 Next.js pages and static metadata routes
+components/          Reusable interface components
+public/_headers      Cloudflare Static Assets headers
+worker.ts            Cloudflare Worker and contact endpoint
+next.config.mjs      Next.js static-export configuration
+wrangler.jsonc       Worker entrypoint and static-assets configuration
+out/                 Generated deployable artifact
 ```
 
 ## Notes
 
-- The website does not require a Node.js server after build.
-- Static pages are served directly from Cloudflare’s edge network.
-- Only `/api/*` invokes a Pages Function; regular page and asset requests remain static.
+- The deployed website does not require a Node.js server.
+- `public/_headers` is copied into `out/` and applied by Workers Static Assets.
 - Animations respect `prefers-reduced-motion`.
 - Concept portfolio work and sample testimonials are labeled clearly.

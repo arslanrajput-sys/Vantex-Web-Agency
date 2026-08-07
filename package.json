@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "wrangler pages dev",
-    "preview:cloudflare": "npm run build && wrangler pages dev",
-    "deploy": "wrangler pages deploy",
+    "start": "wrangler dev",
+    "preview:cloudflare": "npm run build && wrangler dev",
+    "deploy": "wrangler deploy",
     "lint": "eslint ."
   },
   "dependencies": {

@@ -1,6 +1,16 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "vantex-web-agency",
-  "pages_build_output_dir": "./out",
-  "compatibility_date": "2026-08-07"
+  "main": "./worker.ts",
+  "compatibility_date": "2026-08-07",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
 }
