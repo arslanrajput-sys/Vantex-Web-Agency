@@ -21,7 +21,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
-  const isLinkActive = (link: (typeof links)[number]) => active === link.section || (!link.href.startsWith("/#") && pathname === link.href);
+  const isLinkActive = (link: (typeof links)[number]) => (isHome && active === link.section) || (!link.href.startsWith("/#") && pathname === link.href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -60,7 +60,7 @@ export function Navbar() {
       </nav>
       <div id="mobile-menu" className={`overflow-hidden border-line bg-ink/98 transition-[max-height,border] duration-300 lg:hidden ${open ? "max-h-[520px] border-t" : "max-h-0 border-t-0"}`}>
         <div className="shell flex flex-col gap-1 py-5">
-          {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-base font-semibold text-soft hover:bg-card hover:text-copy">{link.label}</Link>)}
+          {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={isLinkActive(link) ? "page" : undefined} onClick={() => setOpen(false)} className={`rounded-xl px-3 py-3 text-base font-semibold transition hover:bg-card hover:text-copy ${isLinkActive(link) ? "bg-card text-copy" : "text-soft"}`}>{link.label}</Link>)}
           <Link className="button mt-3" href={isHome ? "#contact" : "/#contact"} onClick={() => setOpen(false)}>Request a Free Quote</Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { MotionSystem } from "@/components/motion-system";
+import { ScrollManager } from "@/components/scroll-manager";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -32,8 +33,8 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${manrope.variable}`}><MotionSystem/>{children}</body>
+    <html lang="en">
+      <body className={`${inter.variable} ${manrope.variable}`}><ScrollManager/><MotionSystem/>{children}</body>
     </html>
   );
 }
