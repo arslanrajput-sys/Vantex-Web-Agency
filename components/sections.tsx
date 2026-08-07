@@ -1,8 +1,10 @@
-import { ArrowRight, BarChart3, Check, CheckCircle2, Gauge, Layers3, MessageSquareMore, MonitorSmartphone, MousePointerClick, Paintbrush, PanelsTopLeft, PenLine, Phone, Search, ShieldCheck, Sparkles, Target, Wrench } from "lucide-react";
+import { ArrowRight, BarChart3, Check, CheckCircle2, MessageSquareMore, PenLine, Phone, ShieldCheck, Target } from "lucide-react";
 import Link from "next/link";
 import { portfolioProjects } from "@/lib/portfolio";
+import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 import { PortfolioCard } from "./portfolio-card";
+import { ServiceIcon } from "./service-icon";
 import { SectionHeading } from "./section-heading";
 
 const problems = ["Dated visuals lower confidence", "Your offer takes too long to understand", "Mobile visitors struggle to take action", "Slow pages lose attention", "Important proof is buried", "There is no obvious next step"];
@@ -11,20 +13,8 @@ export function ProblemSection() {
   return <section className="section"><div className="shell grid items-center gap-14 lg:grid-cols-2 lg:gap-24"><div><SectionHeading label="The hidden cost" title="Your website should be your best salesperson." copy="People decide whether to trust your business in seconds. If the experience feels unclear, dated, or difficult to use, strong prospects leave before they ever speak to you."/><a href="#contact" className="text-link mt-7">Find out what your site is missing <ArrowRight size={17}/></a></div><div className="audit-card"><div className="flex items-center justify-between border-b border-line pb-5"><div><p className="text-xs font-bold uppercase tracking-[.16em] text-muted">Website clarity audit</p><p className="mt-1 font-display text-xl font-bold text-copy">What is costing you leads?</p></div><span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-bold text-amber-300">Needs attention</span></div><div className="mt-5 space-y-3">{problems.map((p, i) => <div key={p} className="group flex items-center gap-3 rounded-xl border border-transparent bg-ink/45 p-3.5 transition hover:border-line hover:bg-card"><span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-red-400/10 text-xs font-bold text-red-300">{String(i+1).padStart(2,"0")}</span><span className="text-sm text-soft">{p}</span></div>)}</div></div></div></section>;
 }
 
-const services = [
-  [Paintbrush,"Custom website design","A distinctive visual system that makes your business look established, capable, and easy to trust."],
-  [PanelsTopLeft,"Landing pages","One focused page built to connect your campaign with a clear offer and a confident next step."],
-  [Sparkles,"Website redesign","Turn an outdated or underperforming site into a modern sales asset without losing what already works."],
-  [Layers3,"Web development","Clean, responsive builds—from focused marketing sites to connected dashboards, integrations, and chatbot experiences."],
-  [MonitorSmartphone,"Local business websites","Help nearby customers understand your services, service area, and how to contact you fast."],
-  [MousePointerClick,"Conversion optimization","Sharpen the message, hierarchy, proof, and calls to action so more visitors become inquiries."],
-  [Gauge,"Mobile optimization","A seamless phone experience that makes it effortless to call, book, or request a quote."],
-  [Search,"On-page SEO foundations","A crawlable, well-structured website with useful metadata and clear content architecture."],
-  [Wrench,"Website care","Ongoing updates, technical checks, and improvements that keep your website useful after launch."],
-] as const;
-
 export function Services() {
-  return <section id="services" className="section bg-panel/45"><div className="shell"><SectionHeading label="What we build" title="Everything your website needs to earn attention—and action." copy="Every decision is tied to a business outcome. No unnecessary pages, trendy clutter, or features you do not need."/><div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{services.map(([Icon,title,copy], i) => <article key={title} className={`service-card ${i===0 ? "md:col-span-2 lg:col-span-1" : ""}`}><span className="service-icon"><Icon size={22}/></span><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>;
+  return <section id="services" className="section bg-panel/45"><div className="shell"><div className="services-home-heading"><SectionHeading label="What we do" title="Five focused services. No artificial add-ons." copy="Mobile responsiveness, accessibility, and technical quality belong in every professional website. Our service list is organized around the actual business problem you need solved."/><Link href="/services" className="text-link">Explore every service <ArrowRight size={17}/></Link></div><div className="services-home-grid">{services.map((service) => <Link href={`/services#${service.slug}`} key={service.slug} className="service-card"><div className="service-card-top"><span className="service-icon"><ServiceIcon slug={service.slug}/></span><span className="service-card-number">{service.number}</span></div><h3>{service.name}</h3><p>{service.shortDescription}</p><span className="service-card-link">View service details <ArrowRight size={15}/></span></Link>)}</div></div></section>;
 }
 
 export function Portfolio() {

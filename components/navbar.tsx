@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
 
 const links = [
-  { label:"Services", href:"/#services", section:"services" },
+  { label:"Services", href:"/services", section:"services" },
   { label:"Portfolio", href:"/portfolio", section:"portfolio" },
   { label:"Process", href:"/#process", section:"process" },
   { label:"Pricing", href:"/#pricing", section:"pricing" },
@@ -21,6 +21,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
+  const isLinkActive = (link: (typeof links)[number]) => active === link.section || (!link.href.startsWith("/#") && pathname === link.href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -50,7 +51,7 @@ export function Navbar() {
       <nav className="shell flex h-[76px] items-center justify-between" aria-label="Primary navigation">
         <Logo />
         <div className="hidden items-center gap-7 lg:flex">
-          {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={active === link.section || (link.section === "portfolio" && pathname === "/portfolio") ? "page" : undefined} className={`nav-link ${active === link.section || (link.section === "portfolio" && pathname === "/portfolio") ? "active" : ""}`}>{link.label}</Link>)}
+          {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={isLinkActive(link) ? "page" : undefined} className={`nav-link ${isLinkActive(link) ? "active" : ""}`}>{link.label}</Link>)}
         </div>
         <Link className="button button-sm hidden lg:inline-flex" href={isHome ? "#contact" : "/#contact"}>Request a Free Quote</Link>
         <button className="icon-button lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"}>

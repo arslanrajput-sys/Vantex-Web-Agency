@@ -79,6 +79,7 @@ CONTACT_FORM_ENDPOINT=https://your-secure-form-endpoint.example
 
 - Contact information: `lib/site.ts`
 - Canonical URL: `NEXT_PUBLIC_SITE_URL`, with the production fallback in `lib/site.ts`
+- Services and service-page content: `lib/services.ts`
 - Portfolio projects: `lib/portfolio.ts`
 - Pricing packages: `components/sections.tsx`, in the `packages` array
 - Contact-form package ranges: `components/contact-form.tsx`, in `budgetOptions`

@@ -8,10 +8,11 @@ import { faqs } from "@/components/faq-data";
 import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
+import { services } from "@/lib/services";
 
 const schema = [
   {"@context":"https://schema.org","@type":"Organization","@id":`${site.url}/#organization`,name:site.name,url:site.url,logo:`${site.url}/logo.svg`,email:site.email,telephone:site.phoneHref,contactPoint:{"@type":"ContactPoint",contactType:"sales",email:site.email,telephone:site.phoneHref,availableLanguage:"English"}},
-  {"@context":"https://schema.org","@type":"ProfessionalService","@id":`${site.url}/#business`,name:site.name,url:site.url,email:site.email,telephone:site.phoneHref,description:"Custom web design and development studio serving growing service businesses and digital products.",areaServed:"Worldwide",serviceType:["Website design","Web development","Landing page design","Website redesign","Conversion optimization"]},
+  {"@context":"https://schema.org","@type":"ProfessionalService","@id":`${site.url}/#business`,name:site.name,url:site.url,email:site.email,telephone:site.phoneHref,description:"Custom web design and development studio serving growing service businesses and digital products.",areaServed:"Worldwide",serviceType:services.map((service) => service.name)},
   {"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))},
 ];
 
