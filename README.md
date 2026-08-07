@@ -107,3 +107,4 @@ out/                 Generated deployable artifact
 - `public/_headers` is copied into `out/` and applied by Workers Static Assets.
 - Animations respect `prefers-reduced-motion`.
 - The homepage shows three selected projects; `/portfolio/` contains the complete live portfolio.
+- `/about/` and `/contact/` provide dedicated studio and project-inquiry experiences.

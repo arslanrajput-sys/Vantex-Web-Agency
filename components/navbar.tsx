@@ -11,8 +11,8 @@ const links = [
   { label:"Portfolio", href:"/portfolio", section:"portfolio" },
   { label:"Process", href:"/#process", section:"process" },
   { label:"Pricing", href:"/#pricing", section:"pricing" },
-  { label:"About", href:"/#about", section:"about" },
-  { label:"Contact", href:"/#contact", section:"contact" },
+  { label:"About", href:"/about", section:"about" },
+  { label:"Contact", href:"/contact", section:"contact" },
 ] as const;
 
 export function Navbar() {
@@ -22,6 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const isLinkActive = (link: (typeof links)[number]) => (isHome && active === link.section) || (!link.href.startsWith("/#") && pathname === link.href);
+  const quoteHref = pathname === "/contact" ? "#contact" : "/contact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -53,7 +54,7 @@ export function Navbar() {
         <div className="hidden items-center gap-7 lg:flex">
           {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={isLinkActive(link) ? "page" : undefined} className={`nav-link ${isLinkActive(link) ? "active" : ""}`}>{link.label}</Link>)}
         </div>
-        <Link className="button button-sm hidden lg:inline-flex" href={isHome ? "#contact" : "/#contact"}>Request a Free Quote</Link>
+        <Link className="button button-sm hidden lg:inline-flex" href={quoteHref}>Request a Free Quote</Link>
         <button className="icon-button lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"}>
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
@@ -61,7 +62,7 @@ export function Navbar() {
       <div id="mobile-menu" className={`overflow-hidden border-line bg-ink/98 transition-[max-height,border] duration-300 lg:hidden ${open ? "max-h-[520px] border-t" : "max-h-0 border-t-0"}`}>
         <div className="shell flex flex-col gap-1 py-5">
           {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={isLinkActive(link) ? "page" : undefined} onClick={() => setOpen(false)} className={`rounded-xl px-3 py-3 text-base font-semibold transition hover:bg-card hover:text-copy ${isLinkActive(link) ? "bg-card text-copy" : "text-soft"}`}>{link.label}</Link>)}
-          <Link className="button mt-3" href={isHome ? "#contact" : "/#contact"} onClick={() => setOpen(false)}>Request a Free Quote</Link>
+          <Link className="button mt-3" href={quoteHref} onClick={() => setOpen(false)}>Request a Free Quote</Link>
         </div>
       </div>
     </header>
