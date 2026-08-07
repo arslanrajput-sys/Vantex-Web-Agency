@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "wrangler pages dev",
+    "preview:cloudflare": "npm run build && wrangler pages dev",
+    "deploy": "wrangler pages deploy",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260804.1",
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
@@ -23,6 +26,10 @@
     "eslint-config-next": "^16.3.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wrangler": "^4.119.0"
+  },
+  "overrides": {
+    "undici": "7.29.0"
   }
 }

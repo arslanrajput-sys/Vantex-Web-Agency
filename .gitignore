@@ -1,9 +1,11 @@
 /node_modules
 /.next
 /out
+/.wrangler
 /.vercel
 .env*
 !.env.example
+.dev.vars
 npm-debug.log*
 .DS_Store
 *.tsbuildinfo
