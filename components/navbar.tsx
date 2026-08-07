@@ -9,12 +9,23 @@ const links = ["Services", "Work", "Process", "Pricing", "About", "Contact"];
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = links.map((link) => document.getElementById(link.toLowerCase())).filter(Boolean) as HTMLElement[];
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: "-20% 0px -65%", threshold: [0, .15, .35] });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -27,7 +38,7 @@ export function Navbar() {
       <nav className="shell flex h-[76px] items-center justify-between" aria-label="Primary navigation">
         <Logo />
         <div className="hidden items-center gap-7 lg:flex">
-          {links.map((link) => <a key={link} href={`#${link.toLowerCase()}`} className="nav-link">{link}</a>)}
+          {links.map((link) => <a key={link} href={`#${link.toLowerCase()}`} aria-current={active === link.toLowerCase() ? "location" : undefined} className={`nav-link ${active === link.toLowerCase() ? "active" : ""}`}>{link}</a>)}
         </div>
         <a className="button button-sm hidden lg:inline-flex" href="#contact">Book a Free Strategy Call</a>
         <button className="icon-button lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "Close navigation" : "Open navigation"}>

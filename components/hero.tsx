@@ -1,50 +1,70 @@
-import { ArrowRight, Check, MousePointer2, TrendingUp } from "lucide-react";
+"use client";
+
+import { useRef } from "react";
+import { ArrowDown, ArrowRight, Check, MousePointer2, Sparkles, TrendingUp, Zap } from "lucide-react";
 
 export function Hero() {
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  function tilt(event: React.PointerEvent<HTMLDivElement>) {
+    const stage = stageRef.current;
+    if (!stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const rect = stage.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    stage.style.setProperty("--hero-rx", `${-y * 7}deg`);
+    stage.style.setProperty("--hero-ry", `${x * 9}deg`);
+    stage.style.setProperty("--hero-x", `${(x + 0.5) * 100}%`);
+    stage.style.setProperty("--hero-y", `${(y + 0.5) * 100}%`);
+  }
+
+  function resetTilt() {
+    stageRef.current?.style.setProperty("--hero-rx", "0deg");
+    stageRef.current?.style.setProperty("--hero-ry", "0deg");
+  }
+
   return (
-    <section id="top" className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-44">
-      <div className="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
-      <div className="hero-glow absolute -right-48 top-16 -z-10 h-[600px] w-[600px] rounded-full" aria-hidden="true" />
-      <div className="shell grid items-center gap-14 lg:grid-cols-[1.02fr_.98fr] lg:gap-16">
-        <div className="animate-in">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-panel/80 px-3.5 py-2 text-xs font-semibold text-soft shadow-lg shadow-black/10">
-            <span className="h-2 w-2 rounded-full bg-success shadow-[0_0_14px_rgba(34,197,139,.7)]" />
-            Now booking select projects
-          </div>
-          <h1 className="max-w-[720px] font-display text-[clamp(2.7rem,6vw,5.7rem)] font-extrabold leading-[.96] tracking-[-.065em] text-copy">
-            Websites built to turn visitors into <span className="text-gradient">customers.</span>
+    <section id="top" className="next-hero">
+      <div className="hero-mesh" aria-hidden="true"/><div className="hero-scanline" aria-hidden="true"/>
+      <div className="hero-rail hero-rail-left" aria-hidden="true"><span>DESIGN</span><i/><span>DEVELOP</span><i/><span>CONVERT</span></div>
+      <div className="shell relative z-10 grid min-h-[900px] items-center gap-16 pb-24 pt-32 lg:min-h-[860px] lg:grid-cols-[.95fr_1.05fr] lg:gap-10 lg:pb-20 lg:pt-28">
+        <div className="hero-copy-block">
+          <div className="hero-kicker"><Sparkles size={14}/><span>Strategy-led web experiences</span><i>2026</i></div>
+          <h1 className="hero-mega-title">
+            <span className="hero-line"><span>Make your website</span></span>
+            <span className="hero-line"><span className="hero-stroke">impossible to ignore.</span></span>
           </h1>
-          <p className="mt-7 max-w-[630px] text-lg leading-8 text-soft md:text-xl">
-            VantexWeb designs sharp, conversion-focused websites for businesses ready to look more credible, explain their value clearly, and win more qualified leads.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#contact" className="button">Get Your Free Website Plan <ArrowRight size={18} aria-hidden="true" /></a>
-            <a href="#work" className="button-secondary">View Our Work</a>
+          <p className="hero-lede">VantexWeb turns your offer into a cinematic, conversion-focused website—built to stop the scroll, earn trust fast, and move the right people to act.</p>
+          <div className="hero-actions">
+            <a href="#contact" className="button hero-primary">Build My Growth Engine <ArrowRight size={18}/><span className="button-pulse"/></a>
+            <a href="#work" className="hero-work-link"><span className="work-link-icon"><ArrowDown size={17}/></span><span><b>Explore the work</b><small>See the thinking in action</small></span></a>
           </div>
-          <p className="mt-6 flex items-start gap-2 text-sm text-muted"><Check className="mt-0.5 shrink-0 text-success" size={17} aria-hidden="true" /> Fast turnaround. Conversion-focused design. Built for real business growth.</p>
+          <div className="hero-proof"><span><Check size={14}/> Custom strategy</span><span><Check size={14}/> Built for conversion</span><span><Check size={14}/> Zero templates</span></div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[610px] animate-in [animation-delay:140ms]" aria-label="VantexWeb website design preview">
-          <div className="browser-frame float-panel">
-            <div className="flex h-11 items-center gap-2 border-b border-line px-4"><i/><i/><i/><span className="ml-3 h-5 flex-1 rounded-md bg-ink/70" /></div>
-            <div className="grid min-h-[380px] grid-cols-[76px_1fr] md:min-h-[440px] md:grid-cols-[112px_1fr]">
-              <div className="border-r border-line bg-ink/60 p-3 md:p-4">
-                <div className="mb-7 h-5 rounded bg-brand/50"/><div className="space-y-3">{[1,2,3,4].map(i => <div key={i} className="h-2 rounded bg-line"/>)}</div>
-              </div>
-              <div className="relative overflow-hidden p-5 md:p-8">
-                <div className="absolute right-[-12%] top-[-16%] h-48 w-48 rounded-full bg-brand/10 blur-3xl"/>
-                <p className="mb-4 text-[10px] font-bold uppercase tracking-[.2em] text-cyan">Built for growth</p>
-                <div className="h-7 w-5/6 rounded-md bg-copy/90 md:h-10"/><div className="mt-3 h-7 w-3/5 rounded-md bg-copy/90 md:h-10"/>
-                <div className="mt-5 h-2 w-11/12 rounded bg-soft/30"/><div className="mt-2 h-2 w-8/12 rounded bg-soft/20"/>
-                <div className="mt-7 flex gap-3"><div className="h-10 w-32 rounded-lg bg-gradient-to-r from-brand to-cyan"/><div className="h-10 w-24 rounded-lg border border-line"/></div>
-                <div className="mt-10 grid grid-cols-3 gap-3">{["01","02","03"].map((n) => <div key={n} className="rounded-xl border border-line bg-panel p-3 md:p-4"><span className="text-xs font-bold text-brand">{n}</span><div className="mt-3 h-2 rounded bg-soft/25"/><div className="mt-2 h-2 w-2/3 rounded bg-soft/15"/></div>)}</div>
+        <div ref={stageRef} onPointerMove={tilt} onPointerLeave={resetTilt} className="creative-stage" aria-label="Interactive VantexWeb conversion design system preview">
+          <div className="stage-spotlight"/><div className="orbit orbit-one"><i/><i/><i/></div><div className="orbit orbit-two"><i/><i/></div>
+          <div className="stage-label stage-label-top"><span>LIVE EXPERIENCE</span><i/></div>
+          <div className="stage-window">
+            <div className="window-top"><div><i/><i/><i/></div><span>vantexweb / growth-system</span><Zap size={13}/></div>
+            <div className="window-body">
+              <aside><div className="mini-mark">V</div>{[0,1,2,3].map(n=><i key={n}/>)}</aside>
+              <div className="window-canvas">
+                <div className="canvas-nav"><b>BRAND / 001</b><span/><span/><button aria-label="Decorative navigation button">START</button></div>
+                <div className="canvas-main">
+                  <div><small>THE UNFAIR ADVANTAGE</small><strong>Clarity that<br/><em>creates action.</em></strong><p/><p/><button aria-label="Decorative call to action"/></div>
+                  <div className="conversion-orb"><span>+ SIGNAL</span><div className="orb-core"><i/><i/></div></div>
+                </div>
+                <div className="canvas-metrics"><div><small>MESSAGE</small><b>Crystal clear</b></div><div><small>EXPERIENCE</small><b>Frictionless</b></div><div><small>OUTCOME</small><b>More action</b></div></div>
               </div>
             </div>
           </div>
-          <div className="floating-card left-[-12px] top-[42%] md:left-[-50px]"><div className="flex h-9 w-9 items-center justify-center rounded-lg bg-success/15 text-success"><TrendingUp size={18}/></div><div><strong>Clear path to action</strong><span>Designed to convert</span></div></div>
-          <div className="floating-card bottom-[-25px] right-[-8px] [animation-delay:-2s] md:right-[-30px]"><div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand/15 text-brand"><MousePointer2 size={18}/></div><div><strong>Lead captured</strong><span>Quote request received</span></div></div>
+          <div className="signal-card signal-card-left"><div><TrendingUp size={18}/></div><span><small>CONVERSION PATH</small><strong>Friction removed</strong></span><b>↗</b></div>
+          <div className="signal-card signal-card-right"><div><MousePointer2 size={18}/></div><span><small>NEW INQUIRY</small><strong>Qualified lead</strong></span><i/></div>
+          <div className="stage-coordinate coordinate-x">X / 48.208</div><div className="stage-coordinate coordinate-y">Y / 17.618</div>
         </div>
       </div>
+      <div className="hero-marquee" aria-label="VantexWeb capabilities"><div>{["Strategy before pixels","Conversion-led copy","Unmistakably custom","Built to perform","Strategy before pixels","Conversion-led copy","Unmistakably custom","Built to perform"].map((item,index)=><span key={`${item}-${index}`}>{item}<i/></span>)}</div></div>
     </section>
   );
 }

@@ -54,6 +54,7 @@ Without this variable, the form returns a clear setup message and direct-email f
 - Pricing packages: `components/sections.tsx`, in the `packages` array
 - FAQ content: `components/faq.tsx`, in the `faqs` array
 - Logo: replace `public/logo.svg` while preserving its filename, or update `components/logo.tsx`
+- HD horizontal logo master: `public/vantexweb-logo-hd.png`
 - SEO metadata: `app/layout.tsx`
 - Structured data: `app/page.tsx`
 
@@ -82,6 +83,7 @@ public/
   favicon.svg
   logo.svg
   og-image.svg
+  vantexweb-logo-hd.png
 ```
 
 ## Notes
@@ -89,3 +91,4 @@ public/
 - The three featured portfolio pieces are intentionally labeled as concept projects.
 - Sample testimonials are explicitly labeled and are not presented as real client endorsements.
 - Animations respect `prefers-reduced-motion`.
+- The global reveal, cursor-light, scroll-progress, and hero motion system lives in `components/motion-system.tsx` and `components/hero.tsx`.
