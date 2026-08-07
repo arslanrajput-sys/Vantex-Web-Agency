@@ -1,6 +1,6 @@
 # VantexWeb Agency Website
 
-A production-ready VantexWeb agency site built with Next.js App Router, TypeScript, and Tailwind CSS. Next.js generates a static site in `out/`; Cloudflare Workers Static Assets serves it globally, while the Worker handles `/api/contact`.
+A production-ready VantexWeb agency site built with Next.js App Router, TypeScript, and Tailwind CSS. Next.js generates a static site in `out/`; Cloudflare Workers Static Assets serves it globally.
 
 ## Local development
 
@@ -38,8 +38,7 @@ The repository pins Node.js `22.16.0` in `.node-version`, matching the version d
 - `npm run build` runs `next build` and creates the fully static site in `out/`.
 - `npx wrangler deploy` uploads `worker.ts` and the `out/` static assets as one Worker deployment.
 - Static page and asset requests are served by Cloudflare Static Assets.
-- Only `/api/*` is routed through the Worker first.
-- `/api/contact` validates and forwards contact requests without exposing the webhook URL to browser code.
+- Contact forms submit asynchronously to FormSubmit and keep visitors on the website.
 
 To test the same runtime locally:
 
@@ -53,27 +52,13 @@ Wrangler prints the local preview URL, normally [http://localhost:8787](http://l
 
 Open **Workers & Pages > vantex-web-agency > Settings > Variables and Secrets**.
 
-Add this encrypted runtime secret:
-
-| Variable | Purpose | Required |
-| --- | --- | --- |
-| `CONTACT_FORM_ENDPOINT` | HTTPS Formspree endpoint or another form webhook | Required for contact-form delivery |
-
 Add these as build variables when their production values differ from the defaults:
 
 | Variable | Purpose | Required |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical production URL and sitemap base | Recommended |
 
-Public contact details are centralized in `lib/site.ts`. Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser output. Keep `CONTACT_FORM_ENDPOINT` encrypted.
-
-For local Worker testing, create `.dev.vars`:
-
-```text
-CONTACT_FORM_ENDPOINT=https://your-secure-form-endpoint.example
-```
-
-`.dev.vars` is ignored by Git. Without this secret, `/api/contact` deliberately returns a setup message instead of silently losing a lead.
+Public contact details are centralized in `lib/site.ts`. The AJAX FormSubmit destination is derived from that shared email address.
 
 ## Content updates
 
@@ -95,7 +80,7 @@ CONTACT_FORM_ENDPOINT=https://your-secure-form-endpoint.example
 app/                 Next.js pages and static metadata routes
 components/          Reusable interface components
 public/_headers      Cloudflare Static Assets headers
-worker.ts            Cloudflare Worker and contact endpoint
+worker.ts            Cloudflare static-assets Worker
 next.config.mjs      Next.js static-export configuration
 wrangler.jsonc       Worker entrypoint and static-assets configuration
 out/                 Generated deployable artifact
