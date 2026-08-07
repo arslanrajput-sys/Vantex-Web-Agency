@@ -1,16 +1,16 @@
-import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { site } from "@/lib/site";
 import { Logo } from "./logo";
 
 export function Footer() {
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@vantexweb.com";
   return (
     <footer className="border-t border-line bg-ink py-12">
       <div className="shell">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div><Logo footer/><p className="mt-4 max-w-sm text-sm leading-6 text-muted">Premium web design and development for service businesses that want clearer positioning, stronger credibility, and more qualified inquiries.</p></div>
-          <FooterLinks title="Services" links={[["Website design","#services"],["Landing pages","#services"],["Website redesign","#services"],["Website care","#services"]]}/>
-          <FooterLinks title="Company" links={[["Our work","#work"],["Process","#process"],["Pricing","#pricing"],["Contact","#contact"]]}/>
-          <div><h3 className="footer-title">Connect</h3><a className="footer-link" href={`mailto:${email}`}>{email}</a><div className="mt-4 flex gap-2"><a className="social-link" href="#contact" aria-label="Ask for our LinkedIn profile"><Linkedin size={17}/></a><a className="social-link" href="#contact" aria-label="Ask for our Instagram profile"><Instagram size={17}/></a></div></div>
+          <FooterLinks title="Services" links={[["Website design","/#services"],["Landing pages","/#services"],["Website redesign","/#services"],["Website care","/#services"]]}/>
+          <FooterLinks title="Company" links={[["Portfolio","/portfolio"],["Process","/#process"],["Pricing","/#pricing"],["Contact","/#contact"]]}/>
+          <div><h3 className="footer-title">Connect</h3><a className="footer-link" href={`mailto:${site.email}`}>{site.email}</a><a className="footer-link" href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a><div className="mt-4 flex gap-2"><a className="social-link" href={`mailto:${site.email}`} aria-label={`Email VantexWeb at ${site.email}`}><Mail size={17}/></a><a className="social-link" href={`tel:${site.phoneHref}`} aria-label={`Call VantexWeb at ${site.phoneDisplay}`}><Phone size={17}/></a></div></div>
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} VantexWeb. All rights reserved.</p>

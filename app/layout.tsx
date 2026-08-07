@@ -1,20 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { MotionSystem } from "@/components/motion-system";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.vantexweb.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "VantexWeb | High-Converting Websites for Growing Businesses",
-  description: "VantexWeb designs premium, high-converting websites for service businesses, startups, solar companies, roofers, and local brands.",
+  metadataBase: new URL(site.url),
+  title: "VantexWeb | Custom Web Design & Development Studio",
+  description: "VantexWeb designs and develops distinctive, conversion-focused websites for service businesses, growing brands, and digital products.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "VantexWeb | Websites Built to Win More Business",
-    description: "Premium, conversion-focused websites for ambitious service businesses and growing brands.",
+    title: "VantexWeb | Custom Websites Built to Win More Business",
+    description: "Strategy, design, and development connected in one focused web studio.",
     url: "/",
     siteName: "VantexWeb",
     type: "website",
@@ -22,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VantexWeb | High-Converting Websites",
-    description: "Premium websites built around clear offers, stronger trust, and more qualified inquiries.",
+    title: "VantexWeb | Custom Web Design & Development",
+    description: "Distinctive websites built around clear offers, stronger trust, and qualified inquiries.",
     images: ["/og-image.svg"],
   },
   icons: { icon: "/favicon.svg" },

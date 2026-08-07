@@ -35,7 +35,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     }
 
     const endpoint = env.CONTACT_FORM_ENDPOINT;
-    if (!endpoint) return json("The contact form is not connected yet. Please email us directly.", 503);
+    if (!endpoint) return json("The contact form is not connected yet. Please email hello@vantexwebstudio.com directly.", 503);
     if (!endpoint.startsWith("https://")) return json("The contact form endpoint is not configured securely.", 500);
 
     const response = await fetch(endpoint, {
@@ -44,7 +44,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
       body: JSON.stringify({ ...body, source: "VantexWeb website" }),
     });
 
-    if (!response.ok) return json("We could not send your request. Please try again or email us directly.", 502);
+    if (!response.ok) return json("We could not send your request. Please try again or email hello@vantexwebstudio.com.", 502);
     return json("Thanks—your request is in. We will be in touch soon.");
   } catch {
     return json("We could not process that request. Please try again.", 400);

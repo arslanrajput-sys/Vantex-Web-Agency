@@ -64,9 +64,8 @@ Add these as build variables when their production values differ from the defaul
 | Variable | Purpose | Required |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical production URL and sitemap base | Recommended |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Public email in the page and structured data | Recommended |
 
-Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser output. Keep `CONTACT_FORM_ENDPOINT` encrypted.
+Public contact details are centralized in `lib/site.ts`. Only variables prefixed with `NEXT_PUBLIC_` are embedded into static browser output. Keep `CONTACT_FORM_ENDPOINT` encrypted.
 
 For local Worker testing, create `.dev.vars`:
 
@@ -78,8 +77,9 @@ CONTACT_FORM_ENDPOINT=https://your-secure-form-endpoint.example
 
 ## Content updates
 
-- Contact information and canonical URL: Cloudflare build environment variables
-- Portfolio projects: `components/sections.tsx`, in the `projects` array
+- Contact information: `lib/site.ts`
+- Canonical URL: `NEXT_PUBLIC_SITE_URL`, with the production fallback in `lib/site.ts`
+- Portfolio projects: `lib/portfolio.ts`
 - Pricing packages: `components/sections.tsx`, in the `packages` array
 - Contact-form package ranges: `components/contact-form.tsx`, in `budgetOptions`
 - FAQ content: `components/faq-data.ts`, in `faqs`
@@ -105,4 +105,4 @@ out/                 Generated deployable artifact
 - The deployed website does not require a Node.js server.
 - `public/_headers` is copied into `out/` and applied by Workers Static Assets.
 - Animations respect `prefers-reduced-motion`.
-- Concept portfolio work and sample testimonials are labeled clearly.
+- The homepage shows three selected projects; `/portfolio/` contains the complete live portfolio.

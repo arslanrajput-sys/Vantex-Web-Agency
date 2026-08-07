@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { ArrowDown, ArrowRight, Check, MousePointer2, Sparkles, TrendingUp, Zap } from "lucide-react";
 
 export function Hero() {
@@ -29,17 +30,17 @@ export function Hero() {
       <div className="hero-rail hero-rail-left" aria-hidden="true"><span>DESIGN</span><i/><span>DEVELOP</span><i/><span>CONVERT</span></div>
       <div className="shell relative z-10 grid min-h-[900px] items-center gap-16 pb-24 pt-32 lg:min-h-[860px] lg:grid-cols-[.95fr_1.05fr] lg:gap-10 lg:pb-20 lg:pt-28">
         <div className="hero-copy-block">
-          <div className="hero-kicker"><Sparkles size={14}/><span>Strategy-led web experiences</span><i>2026</i></div>
+          <div className="hero-kicker"><Sparkles size={14}/><span>Web design + development</span><i>Independent studio</i></div>
           <h1 className="hero-mega-title">
             <span className="hero-line"><span>Make your website</span></span>
             <span className="hero-line"><span className="hero-stroke">impossible to ignore.</span></span>
           </h1>
-          <p className="hero-lede">VantexWeb turns your offer into a cinematic, conversion-focused website—built to stop the scroll, earn trust fast, and move the right people to act.</p>
+          <p className="hero-lede">We design and build custom websites that explain your value quickly, earn trust, and turn serious visitors into qualified inquiries.</p>
           <div className="hero-actions">
-            <a href="#contact" className="button hero-primary">Build My Growth Engine <ArrowRight size={18}/><span className="button-pulse"/></a>
-            <a href="#work" className="hero-work-link"><span className="work-link-icon"><ArrowDown size={17}/></span><span><b>Explore the work</b><small>See the thinking in action</small></span></a>
+            <a href="#contact" className="button hero-primary">Get My Free Website Quote <ArrowRight size={18}/><span className="button-pulse"/></a>
+            <Link href="/portfolio" className="hero-work-link"><span className="work-link-icon"><ArrowDown size={17}/></span><span><b>View live portfolio</b><small>Explore 7 finished projects</small></span></Link>
           </div>
-          <div className="hero-proof"><span><Check size={14}/> Custom strategy</span><span><Check size={14}/> Built for conversion</span><span><Check size={14}/> Zero templates</span></div>
+          <div className="hero-proof"><span><Check size={14}/> Direct collaboration</span><span><Check size={14}/> Built for real buyers</span><span><Check size={14}/> No recycled templates</span></div>
         </div>
 
         <div ref={stageRef} onPointerMove={tilt} onPointerLeave={resetTilt} className="creative-stage" aria-label="Interactive VantexWeb conversion design system preview">
@@ -52,7 +53,7 @@ export function Hero() {
               <div className="window-canvas">
                 <div className="canvas-nav"><b>BRAND / 001</b><span/><span/><button aria-label="Decorative navigation button">START</button></div>
                 <div className="canvas-main">
-                  <div><small>THE UNFAIR ADVANTAGE</small><strong>Clarity that<br/><em>creates action.</em></strong><p/><p/><button aria-label="Decorative call to action"/></div>
+                  <div><small>THE BUSINESS ADVANTAGE</small><strong>Clarity that<br/><em>creates action.</em></strong><p/><p/><button aria-label="Decorative call to action"/></div>
                   <div className="conversion-orb"><span>+ SIGNAL</span><div className="orb-core"><i/><i/></div></div>
                 </div>
                 <div className="canvas-metrics"><div><small>MESSAGE</small><b>Crystal clear</b></div><div><small>EXPERIENCE</small><b>Frictionless</b></div><div><small>OUTCOME</small><b>More action</b></div></div>

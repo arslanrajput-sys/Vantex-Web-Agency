@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Logo({ footer = false }: { footer?: boolean }) {
   return (
-    <a href="#top" className="brand-logo group inline-flex items-center gap-[5px]" aria-label="VantexWeb home">
+    <Link href="/" className="brand-logo group inline-flex items-center gap-[5px]" aria-label="VantexWeb home">
       <Image className={footer ? "brand-mark h-[69px] w-[74px]" : "brand-mark h-[76px] w-[81px]"} src="/logo.svg" alt="" width={footer ? 74 : 81} height={footer ? 69 : 76} priority={!footer} />
       <span className="font-display text-[19px] font-extrabold tracking-[-0.045em] text-copy">
         Vantex<span className="text-gradient">Web</span>
       </span>
-    </a>
+    </Link>
   );
 }
