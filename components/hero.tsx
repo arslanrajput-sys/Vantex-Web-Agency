@@ -38,7 +38,7 @@ export function Hero() {
           <p className="hero-lede">We design and build custom websites that explain your value quickly, earn trust, and turn serious visitors into qualified inquiries.</p>
           <div className="hero-actions">
             <Link href="/contact" className="button hero-primary">Get My Free Website Quote <ArrowRight size={18}/><span className="button-pulse"/></Link>
-            <Link href="/portfolio" className="hero-work-link"><span className="work-link-icon"><ArrowDown size={17}/></span><span><b>View live portfolio</b><small>Explore 7 finished projects</small></span></Link>
+            <Link href="/portfolio" className="hero-work-link"><span className="work-link-icon"><ArrowDown size={17}/></span><span><b>View live portfolio</b><small>Explore selected client work</small></span></Link>
           </div>
           <div className="hero-proof"><span><Check size={14}/> Direct collaboration</span><span><Check size={14}/> Built for real buyers</span><span><Check size={14}/> No recycled templates</span></div>
         </div>
