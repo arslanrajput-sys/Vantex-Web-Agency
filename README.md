@@ -52,6 +52,7 @@ Without this variable, the form returns a clear setup message and direct-email f
 - Contact information and site URL: `.env.local` / Vercel environment variables
 - Portfolio projects: `components/sections.tsx`, in the `projects` array
 - Pricing packages: `components/sections.tsx`, in the `packages` array
+- Contact-form package ranges: `components/contact-form.tsx`, in the `budgetOptions` array
 - FAQ content: `components/faq.tsx`, in the `faqs` array
 - Logo: replace `public/logo.svg` while preserving its filename, or update `components/logo.tsx`
 - HD horizontal logo master: `public/vantexweb-logo-hd.png`
