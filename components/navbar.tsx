@@ -22,7 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const isLinkActive = (link: (typeof links)[number]) => (isHome && active === link.section) || (!link.href.startsWith("/#") && pathname === link.href);
-  const quoteHref = pathname === "/contact" ? "#contact" : "/contact";
+  const quoteHref = "/contact/#contact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
