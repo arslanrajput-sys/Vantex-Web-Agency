@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact VantexWeb | Request a Website Quote",
-  description: "Tell VantexWeb about your website, landing page, redesign, chatbot, dashboard, SEO, or performance project and request a clear project recommendation.",
+  description: "Tell VantexWeb about your website, landing page, redesign, AI receptionist chatbot, dashboard, SEO, or performance project and request a clear project recommendation.",
   alternates: { canonical: "/contact/" },
   openGraph: {
     title: "Start a Website Project with VantexWeb",

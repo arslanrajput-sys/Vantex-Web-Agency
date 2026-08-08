@@ -65,10 +65,10 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
             <Field name="phone" label="Phone" type="tel" required autoComplete="tel"/>
             <Field name="email" label="Email" type="email" required autoComplete="email"/>
             <Field name="businessName" label="Business name (optional)" autoComplete="organization"/>
-            <Select name="inquiryType" label="Inquiry type" options={["Website Redesign","Landing Page","Complete Website","Advanced Website with Dashboard","Website with AI Chatbot","Other"]}/>
+            <Select name="inquiryType" label="Inquiry type" options={["Website Redesign","Landing Page","Complete Website","Advanced Website with Dashboard","Website with AI Receptionist Chatbot","Other"]}/>
             <Select name="budget" label="Estimated budget" required options={budgetOptions}/>
           </div>
-          <label className="field mt-5"><span>Project details <b>*</b></span><textarea name="message" required minLength={20} rows={5} placeholder="Which pages or features do you need? Tell us about any dashboard, chatbot, booking, or integration requirements."/></label>
+          <label className="field mt-5"><span>Project details <b>*</b></span><textarea name="message" required minLength={20} rows={5} placeholder="Which pages or features do you need? Tell us about any dashboard, AI receptionist chatbot, booking, or integration requirements."/></label>
           <input type="text" name="companyWebsite" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true"/>
           <button className="button mt-6 w-full sm:w-auto" disabled={status==="loading"} type="submit">{status==="loading"?<><LoaderCircle className="animate-spin" size={18}/>Sending…</>:<>Get My Free Website Quote <ArrowRight size={18}/></>}</button>
           {message&&<div role={status==="error" ? "alert" : "status"} aria-live="polite" className={`form-status ${status}`}>{status==="error" ? <AlertCircle size={18}/> : <CheckCircle2 size={18}/>}<span>{message}</span></div>}

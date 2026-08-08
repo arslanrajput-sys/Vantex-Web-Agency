@@ -8,12 +8,12 @@ import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Web Design, Development, Chatbot & SEO Services | VantexWeb",
-  description: "Explore custom website design and development, landing pages, website redesigns, AI chatbot integration, SEO, and performance optimization from VantexWeb.",
+  title: "Web Design, AI Receptionist Chatbot & SEO Services | VantexWeb",
+  description: "Explore custom website design and development, landing pages, website redesigns, AI receptionist chatbots for customer questions and lead collection, SEO, and performance optimization from VantexWeb.",
   alternates: { canonical: "/services/" },
   openGraph: {
     title: "Web Design and Development Services | VantexWeb",
-    description: "Connected web design, development, AI, SEO, and performance services built around real business goals.",
+    description: "Connected web design, development, AI receptionist chatbots, SEO, and performance services built around real business goals.",
     url: "/services/",
     type: "website",
   },

@@ -50,12 +50,12 @@ export const services: readonly Service[] = [
   {
     slug: "ai-chatbot-integration",
     number: "04",
-    name: "AI Chatbot Integration",
-    shortDescription: "Smart website chatbots as a receptionist, lead capture, FAQs, customer support, booking, and inquiries.",
-    detail: "We design the chatbot around real customer questions and business workflows—not novelty. It can guide visitors, qualify opportunities, collect useful details, and hand conversations to the right next step.",
-    includes: ["Conversation and intent planning", "Business knowledge setup", "Lead qualification flows", "Booking or CRM connections", "Escalation and fallback paths"],
-    bestFor: "Businesses that receive repeat questions, need after-hours lead capture, or want visitors routed to the right service faster.",
-    outcome: "A practical front-line assistant that supports the team without pretending automation should replace human judgment.",
+    name: "AI Chatbot & Receptionist Integration",
+    shortDescription: "An AI website receptionist that answers customer questions, collects lead details, supports booking, and routes inquiries well.",
+    detail: "We configure the chatbot around your services, customer questions, and real workflows—not novelty. It can talk with visitors, answer useful questions, collect lead information, help with booking or inquiries, and hand each conversation to the right next step.",
+    includes: ["Conversation and intent planning", "Business knowledge and FAQ setup", "Lead and inquiry collection", "Booking, CRM, or team handoff", "Escalation and fallback paths"],
+    bestFor: "Businesses that receive repeat questions, need a receptionist-style first response, want after-hours lead capture, or need visitors routed to the right service faster.",
+    outcome: "A practical AI receptionist that gives customers useful answers, captures qualified information, and keeps the team focused on the conversations that need a person.",
   },
   {
     slug: "seo-performance-optimization",
