@@ -62,7 +62,7 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
           <input type="hidden" name="_captcha" value="false"/>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field name="name" label="Name" required autoComplete="name"/>
-            <Field name="businessName" label="Business name" required autoComplete="organization"/>
+            <Field name="businessName" label="Business name" autoComplete="organization"/>
             <Field name="email" label="Email" type="email" required autoComplete="email"/>
             <Field name="phone" label="Phone" type="tel" autoComplete="tel"/>
             <Field name="website" label="Current website" type="url" placeholder="https://"/>

@@ -15,7 +15,7 @@ export function Footer() {
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} VantexWeb. All rights reserved.</p>
-          <div className="flex flex-wrap gap-5"><Link href="/privacy" className="hover:text-copy">Privacy Policy</Link><Link href="/terms" className="hover:text-copy">Terms</Link><a href="#top" className="flex items-center gap-1 hover:text-copy">Back to top <ArrowUpRight size={13}/></a></div>
+          <div className="flex flex-wrap gap-5"><Link href="/privacy" className="hover:text-copy">Privacy Policy</Link><Link href="/terms" className="hover:text-copy">Terms</Link><Link href="/disclaimer" className="hover:text-copy">Disclaimer</Link><a href="#top" className="flex items-center gap-1 hover:text-copy">Back to top <ArrowUpRight size={13}/></a></div>
         </div>
       </div>
     </footer>
