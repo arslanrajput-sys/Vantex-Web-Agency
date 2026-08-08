@@ -8,6 +8,7 @@ import { SectionHeading } from "./section-heading";
 type Status = "idle" | "loading" | "success" | "error";
 
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${site.email}`;
+const formSubmitAutoresponse = "Thank you for reaching out to VantexWeb Studio. We've received your message and will review your requirements carefully. You can expect a response within 1 business day.\n\nBest regards,\nArslan E.\nFounder, VantexWeb Studio\nvantexwebstudio.com";
 
 const budgetOptions = [
   "$150–$200 — Conversion Launch",
@@ -51,8 +52,10 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
           <div className="mt-8 space-y-4"><div className="contact-note"><MessageSquareText/><div><strong>A real project review</strong><span>No automated audit and no generic sales script. Your message is read by the person who would help shape the work.</span></div></div><div className="contact-note"><Mail/><div><strong>Email us directly</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></div><div className="contact-note"><Phone/><div><strong>Prefer to talk?</strong><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></div></div></div>
         </div>
         <form action={formSubmitEndpoint} method="POST" onSubmit={submit} className="contact-card" noValidate>
-          <input type="hidden" name="_subject" value="New VantexWeb project inquiry"/>
+          <input type="hidden" name="_subject" value="New Website Lead - VantexWeb"/>
           <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_autoresponse" value={formSubmitAutoresponse}/>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field name="name" label="Name" required autoComplete="name"/>
             <Field name="businessName" label="Business name" required autoComplete="organization"/>
