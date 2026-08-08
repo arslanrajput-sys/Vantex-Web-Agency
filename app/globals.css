@@ -183,3 +183,9 @@ main>.section{position:relative;isolation:isolate}main>.section:after{content:""
 @media (min-width:768px){.about-principles-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-fit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-next-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1024px){.about-hero-layout{grid-template-columns:minmax(0,1.2fr) minmax(380px,.58fr)}.about-belief-layout{grid-template-columns:minmax(0,1.05fr) minmax(400px,.72fr);align-items:start}.contact-hero-layout{grid-template-columns:minmax(0,1.15fr) minmax(380px,.58fr)}}
 @media (max-width:767px){.about-page-hero,.contact-page-hero{min-height:auto;padding:126px 0 72px}.about-hero-copy h1,.contact-hero-copy h1{font-size:clamp(3rem,14.4vw,4.8rem)}.about-hero-copy>p,.contact-hero-copy>p{font-size:15px;line-height:1.7}.about-hero-actions{align-items:stretch;flex-direction:column}.about-belief,.about-principles,.about-fit{padding:78px 0}.about-section-heading,.about-fit-heading,.contact-next-heading{align-items:flex-start;flex-direction:column}.about-closing{padding-bottom:80px}.about-closing-card{align-items:stretch;flex-direction:column;padding:28px 23px}.about-closing-card .button{width:100%}.contact-next-steps{padding:76px 0}.contact-page-form-section{padding-top:80px!important;padding-bottom:80px!important}}
+
+/* Keep the portfolio CTA actions visually centered and equally sized. */
+.portfolio-cta-card{align-items:center}
+.portfolio-cta-actions{width:270px;min-width:270px;justify-content:center;gap:12px}
+.portfolio-cta-actions .button,.portfolio-cta-actions .button-secondary{width:100%}
+@media (max-width:767px){.portfolio-cta-card{align-items:stretch}.portfolio-cta-actions{width:100%;min-width:0}}
