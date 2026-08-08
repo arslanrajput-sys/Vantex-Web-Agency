@@ -195,3 +195,4 @@ main>.section{position:relative;isolation:isolate}main>.section:after{content:""
 
 /* Reserve three consistent lines for every package description at all sizes. */
 .pricing-for{height:5.1em;min-height:5.1em}
+.pricing-divider{margin-top:18px}
