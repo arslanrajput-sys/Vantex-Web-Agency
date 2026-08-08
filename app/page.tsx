@@ -5,7 +5,6 @@ import { ProblemSection, Services, Portfolio, WhyUs, Process, Results, AgencySta
 import { Comparison } from "@/components/comparison";
 import { FAQ } from "@/components/faq";
 import { faqs } from "@/components/faq-data";
-import { ContactForm } from "@/components/contact-form";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
@@ -17,5 +16,5 @@ const schema = [
 ];
 
 export default function Home() {
-  return <><Navbar/><main><Hero/><TrustBar/><ProblemSection/><Services/><Portfolio/><Comparison/><WhyUs/><Process/><Results/><AgencyStandards/><FAQ/><FinalCta/><ContactForm/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/></>;
+  return <><Navbar/><main><Hero/><TrustBar/><ProblemSection/><Services/><Portfolio/><Comparison/><WhyUs/><Process/><Results/><AgencyStandards/><FAQ/><FinalCta/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/></>;
 }
