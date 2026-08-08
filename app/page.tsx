@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { TrustBar } from "@/components/trust-bar";
-import { ProblemSection, Services, Portfolio, WhyUs, Process, Results, Pricing, AgencyStandards, FinalCta } from "@/components/sections";
+import { ProblemSection, Services, Portfolio, WhyUs, Process, Results, AgencyStandards, FinalCta } from "@/components/sections";
 import { Comparison } from "@/components/comparison";
 import { FAQ } from "@/components/faq";
 import { faqs } from "@/components/faq-data";
@@ -17,5 +17,5 @@ const schema = [
 ];
 
 export default function Home() {
-  return <><Navbar/><main><Hero/><TrustBar/><ProblemSection/><Services/><Portfolio/><Comparison/><WhyUs/><Process/><Results/><Pricing/><AgencyStandards/><FAQ/><FinalCta/><ContactForm/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/></>;
+  return <><Navbar/><main><Hero/><TrustBar/><ProblemSection/><Services/><Portfolio/><Comparison/><WhyUs/><Process/><Results/><AgencyStandards/><FAQ/><FinalCta/><ContactForm/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,"\\u003c")}}/></>;
 }
