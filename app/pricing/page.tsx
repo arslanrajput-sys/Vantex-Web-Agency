@@ -23,7 +23,7 @@ const pricingFaqs = [
   ["Which package should I choose?", "Choose the closest match rather than forcing an exact decision. We will review your goals and recommend the leanest package that can deliver the result properly."],
   ["Can I start with a smaller package and expand later?", "Yes. We can plan the structure so a landing page or focused business website can grow into additional services, content, dashboards, or automation later."],
   ["How are project payments structured?", "The payment schedule is confirmed in your proposal before work begins. Larger projects are normally divided into clear milestones so cost and progress remain predictable."],
-  ["Are revisions included?", "Yes. Conversion Launch includes two revision rounds, while Business Authority and Growth Platform include three. Intelligent Scale receives a tailored review schedule based on its scope."],
+  ["What will my proposal include?", "Your proposal will clearly define the recommended scope, pages, functionality, project investment, payment milestones, and expected delivery plan before work begins."],
   ["Does the AI receptionist require ongoing services?", "Some chatbot, model, CRM, booking, or automation platforms charge ongoing usage fees. We identify those costs before implementation and keep third-party accounts under your control."],
 ] as const;
 

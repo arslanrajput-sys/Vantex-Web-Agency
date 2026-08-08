@@ -7,7 +7,7 @@ export const faqs = [
   ["What can an AI receptionist chatbot do?","It can answer common customer questions, explain services, collect lead and inquiry details, support booking requests, and route the conversation to the right person or next step. We configure it around your actual business information and workflow."],
   ["Do you provide hosting?","We can recommend the right hosting setup and handle deployment. Hosting costs are kept in your name so you retain ownership and control."],
   ["What platforms do you use?","We select the simplest suitable platform for the job, including modern custom builds with Next.js and easy-to-manage content systems when your team needs editing access."],
-  ["How many revisions are included?","Conversion Launch includes two revision rounds. Business Authority and Growth Platform include three. Intelligent Scale projects receive a tailored review and approval plan in the proposal."],
+  ["Will I own the finished website?","Yes. Once the project is completed and paid for, the finished website and agreed project assets belong to you. Third-party services remain under your own accounts wherever possible."],
   ["Can you maintain the website after launch?","Yes. Optional care plans can cover content updates, performance checks, technical maintenance, and ongoing improvements."],
   ["How do we get started?","Share a few details in the form below. We will review your goals, arrange a free fit call, and send a clear proposal if the project is a good match."],
 ] as const;
