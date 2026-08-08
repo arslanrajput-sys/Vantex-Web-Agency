@@ -189,3 +189,6 @@ main>.section{position:relative;isolation:isolate}main>.section:after{content:""
 .portfolio-cta-actions{width:270px;min-width:270px;justify-content:center;gap:12px}
 .portfolio-cta-actions .button,.portfolio-cta-actions .button-secondary{width:100%}
 @media (max-width:767px){.portfolio-cta-card{align-items:stretch}.portfolio-cta-actions{width:100%;min-width:0}}
+
+.nav-quote-button{font-size:.825rem}
+.nav-quote-button>span{font-size:1.05em;line-height:1;filter:drop-shadow(0 0 7px rgba(255,255,255,.65))}
