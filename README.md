@@ -39,6 +39,7 @@ The repository pins Node.js `22.16.0` in `.node-version`, matching the version d
 - `npx wrangler deploy` uploads `worker.ts` and the `out/` static assets as one Worker deployment.
 - Static page and asset requests are served by Cloudflare Static Assets.
 - Contact forms submit asynchronously to FormSubmit and keep visitors on the website.
+- A Cloudflare Worker sends the customer confirmation email through Resend after FormSubmit accepts the lead.
 
 To test the same runtime locally:
 
@@ -57,6 +58,15 @@ Add these as build variables when their production values differ from the defaul
 | Variable | Purpose | Required |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical production URL and sitemap base | Recommended |
+
+Add these Worker variables to enable customer confirmation emails:
+
+| Variable | Purpose | Required |
+| --- | --- | --- |
+| `RESEND_API_KEY` | Resend API key stored as an encrypted secret | Yes |
+| `RESEND_FROM_EMAIL` | Verified Resend sender, for example `VantexWeb Studio <hello@vantexwebstudio.com>` | Yes |
+
+Before setting these values, verify `vantexwebstudio.com` in Resend. The API key stays in Cloudflare and is never included in browser code.
 
 Public contact details are centralized in `lib/site.ts`. The AJAX FormSubmit destination is derived from that shared email address.
 

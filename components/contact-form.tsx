@@ -8,7 +8,6 @@ import { SectionHeading } from "./section-heading";
 type Status = "idle" | "loading" | "success" | "error";
 
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${site.email}`;
-const formSubmitAutoresponse = "Thank you for reaching out to VantexWeb Studio. We've received your message and will review your requirements carefully. You can expect a response within 1 business day.\n\nBest regards,\nArslan E.\nFounder, VantexWeb Studio\nvantexwebstudio.com";
 
 const budgetOptions = [
   "$150–$200 — Conversion Launch",
@@ -36,6 +35,12 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
       const data = await response.json().catch(() => null) as {success?:boolean|string;message?:string} | null;
       const delivered = data?.success === true || data?.success === "true";
       if (!response.ok || !delivered) throw new Error(data?.message || "We could not send your request.");
+      const confirmationResponse = await fetch("/api/autoresponse", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email: String(formData.get("email") || ""), name: String(formData.get("name") || "") }),
+      });
+      if (!confirmationResponse.ok) throw new Error("Your request was received, but the confirmation email could not be sent. Please email us directly.");
       setStatus("success"); setMessage("Thanks—your project brief has been sent. We will be in touch shortly."); form.reset();
     } catch (error) {
       setStatus("error"); setMessage(error instanceof Error ? error.message : "Something went wrong. Please email us directly.");
@@ -55,7 +60,6 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
           <input type="hidden" name="_subject" value="New Website Lead - VantexWeb"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_autoresponse" value={formSubmitAutoresponse}/>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field name="name" label="Name" required autoComplete="name"/>
             <Field name="businessName" label="Business name" required autoComplete="organization"/>
