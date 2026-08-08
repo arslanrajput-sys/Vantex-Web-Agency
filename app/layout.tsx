@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
+import Script from "next/script";
 import { MotionSystem } from "@/components/motion-system";
 import { ScrollManager } from "@/components/scroll-manager";
 import { JsonLd } from "@/components/json-ld";
@@ -20,7 +21,10 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable}`}><a className="skip-link" href="#top">Skip to main content</a><ScrollManager/><MotionSystem/><JsonLd data={siteWideSchema}/>{children}</body>
+      <body className={`${inter.variable} ${manrope.variable}`}><a className="skip-link" href="#top">Skip to main content</a><ScrollManager/><MotionSystem/><JsonLd data={siteWideSchema}/>{children}<Script src="https://www.googletagmanager.com/gtag/js?id=G-GYGFRYE93M" strategy="afterInteractive"/><Script id="google-analytics" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GYGFRYE93M');`}</Script></body>
     </html>
   );
 }
