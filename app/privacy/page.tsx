@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | VantexWeb",
-  description: "How VantexWeb handles information submitted through this website.",
+  description: "Read how VantexWeb collects, uses, protects, and manages information submitted through our website and contact forms.",
+  alternates: { canonical: "/privacy/" },
+  robots: publicPageRobots,
 };
 
 export default function PrivacyPage() {

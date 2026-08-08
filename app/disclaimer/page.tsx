@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Disclaimer | VantexWeb",
-  description: "Important information about using the VantexWeb website and its services.",
+  title: "Website Disclaimer | VantexWeb",
+  description: "Read the VantexWeb disclaimer covering website information, third-party resources, service results, and liability limitations.",
+  alternates: { canonical: "/disclaimer/" },
+  robots: publicPageRobots,
 };
 
 export default function DisclaimerPage() {

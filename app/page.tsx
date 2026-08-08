@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { TrustBar } from "@/components/trust-bar";
@@ -8,6 +9,14 @@ import { faqs } from "@/components/faq-data";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { publicPageRobots } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "VantexWeb | High-Converting Websites for Businesses",
+  description: "Custom websites for service businesses built to improve trust, generate more leads, and turn visitors into paying customers.",
+  alternates: { canonical: "/" },
+  robots: publicPageRobots,
+};
 
 const schema = [
   {"@context":"https://schema.org","@type":"Organization","@id":`${site.url}/#organization`,name:site.name,url:site.url,logo:`${site.url}/logo.svg`,email:site.email,telephone:site.phoneHref,contactPoint:{"@type":"ContactPoint",contactType:"sales",url:`${site.url}/contact/`,email:site.email,telephone:site.phoneHref,availableLanguage:"English"}},

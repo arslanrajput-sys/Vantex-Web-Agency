@@ -4,14 +4,16 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact VantexWeb | Request a Website Quote",
-  description: "Tell VantexWeb about your website, landing page, redesign, AI receptionist chatbot, dashboard, SEO, or performance project and request a clear project recommendation.",
+  title: "Get a Free Website Quote | VantexWeb",
+  description: "Tell us about your project and get a free website quote for custom web design, redesign, landing pages, SEO, or AI integration.",
   alternates: { canonical: "/contact/" },
+  robots: publicPageRobots,
   openGraph: {
-    title: "Start a Website Project with VantexWeb",
-    description: "Share the business problem, project goals, and scope. Get a practical recommendation for the next step.",
+    title: "Get a Free Website Quote | VantexWeb",
+    description: "Tell us about your project and get a free website quote for custom web design, redesign, landing pages, SEO, or AI integration.",
     url: "/contact/",
     type: "website",
   },

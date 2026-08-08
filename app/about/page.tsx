@@ -4,14 +4,16 @@ import { ArrowRight, ArrowUpRight, Check, Compass, Eye, Layers3, MessageSquareMo
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About VantexWeb | Independent Web Design & Development Studio",
-  description: "Meet the thinking behind VantexWeb: a focused web design and development studio built around clarity, direct collaboration, and useful digital experiences.",
+  title: "About VantexWeb | Web Design Studio",
+  description: "Learn about VantexWeb, a custom web design studio focused on clean UX, modern development, performance, and lead generation.",
   alternates: { canonical: "/about/" },
+  robots: publicPageRobots,
   openGraph: {
-    title: "A Focused Web Studio Without the Agency Theatre | VantexWeb",
-    description: "Strategy, design, and development handled as one connected process.",
+    title: "About VantexWeb | Web Design Studio",
+    description: "Learn about VantexWeb, a custom web design studio focused on clean UX, modern development, performance, and lead generation.",
     url: "/about/",
     type: "website",
   },

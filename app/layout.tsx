@@ -9,12 +9,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "VantexWeb | Custom Web Design & Development Studio",
-  description: "VantexWeb designs and develops distinctive, conversion-focused websites for service businesses, growing brands, and digital products.",
-  alternates: { canonical: "/" },
+  title: "VantexWeb | High-Converting Websites for Businesses",
+  description: "Custom websites for service businesses built to improve trust, generate more leads, and turn visitors into paying customers.",
   openGraph: {
-    title: "VantexWeb | Custom Websites Built to Win More Business",
-    description: "Strategy, design, and development connected in one focused web studio.",
+    title: "VantexWeb | High-Converting Websites for Businesses",
+    description: "Custom websites for service businesses built to improve trust, generate more leads, and turn visitors into paying customers.",
     url: "/",
     siteName: "VantexWeb",
     type: "website",
@@ -22,8 +21,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VantexWeb | Custom Web Design & Development",
-    description: "Distinctive websites built around clear offers, stronger trust, and qualified inquiries.",
+    title: "VantexWeb | High-Converting Websites for Businesses",
+    description: "Custom websites for service businesses built to improve trust, generate more leads, and turn visitors into paying customers.",
     images: ["/og-image.svg"],
   },
   icons: { icon: "/favicon.svg" },

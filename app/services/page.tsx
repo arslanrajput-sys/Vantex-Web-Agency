@@ -6,14 +6,16 @@ import { Footer } from "@/components/footer";
 import { ServiceIcon } from "@/components/service-icon";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Web Design, AI Receptionist Chatbot & SEO Services | VantexWeb",
-  description: "Explore custom website design and development, landing pages, website redesigns, AI receptionist chatbots for customer questions and lead collection, SEO, and performance optimization from VantexWeb.",
+  title: "Our Services | VantexWeb",
+  description: "Explore custom web design, redesign, landing pages, AI chatbots, SEO, and performance services built for growing businesses.",
   alternates: { canonical: "/services/" },
+  robots: publicPageRobots,
   openGraph: {
-    title: "Web Design and Development Services | VantexWeb",
-    description: "Connected web design, development, AI receptionist chatbots, SEO, and performance services built around real business goals.",
+    title: "Our Services | VantexWeb",
+    description: "Explore custom web design, redesign, landing pages, AI chatbots, SEO, and performance services built for growing businesses.",
     url: "/services/",
     type: "website",
   },

@@ -4,14 +4,16 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { FAQ } from "@/components/faq";
 import { FinalCta, Pricing } from "@/components/sections";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Website Design Packages & Pricing | VantexWeb",
-  description: "Compare VantexWeb landing page, business website, dashboard, and AI receptionist website packages with clear starting price ranges.",
+  title: "Pricing & Packages | VantexWeb",
+  description: "View website design packages for landing pages, business websites, advanced builds, custom features, and AI integrations.",
   alternates: { canonical: "/pricing/" },
+  robots: publicPageRobots,
   openGraph: {
-    title: "Website Packages & Pricing | VantexWeb",
-    description: "Clear starting ranges for custom landing pages, business websites, dashboards, and AI receptionist experiences.",
+    title: "Pricing & Packages | VantexWeb",
+    description: "View website design packages for landing pages, business websites, advanced builds, custom features, and AI integrations.",
     url: "/pricing/",
     type: "website",
   },

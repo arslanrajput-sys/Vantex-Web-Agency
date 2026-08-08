@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms of Use | VantexWeb",
-  description: "Terms governing use of the VantexWeb website.",
+  description: "Review the terms and conditions governing use of the VantexWeb website, services, content, and related online resources.",
+  alternates: { canonical: "/terms/" },
+  robots: publicPageRobots,
 };
 
 export default function TermsPage() {

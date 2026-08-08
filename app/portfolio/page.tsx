@@ -6,14 +6,16 @@ import { Footer } from "@/components/footer";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { portfolioProjects } from "@/lib/portfolio";
 import { site } from "@/lib/site";
+import { publicPageRobots } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Web Design Portfolio | VantexWeb",
-  description: "Explore live websites, business platforms, AI-assisted tools, and conversion-focused digital products designed and developed by VantexWeb.",
+  title: "Our Portfolio & Projects | VantexWeb",
+  description: "Explore real websites and digital projects built for cleaning, roofing, solar, barber, service businesses, and online tools.",
   alternates: { canonical: "/portfolio/" },
+  robots: publicPageRobots,
   openGraph: {
-    title: "Selected Web Design and Development Work | VantexWeb",
-    description: "Live work across service businesses, calculators, and interactive products.",
+    title: "Our Portfolio & Projects | VantexWeb",
+    description: "Explore real websites and digital projects built for cleaning, roofing, solar, barber, service businesses, and online tools.",
     url: "/portfolio/",
     type: "website",
   },
