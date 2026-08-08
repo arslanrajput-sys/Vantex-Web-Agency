@@ -18,7 +18,17 @@ export const metadata: Metadata = {
 };
 
 const scopeNotes = ["Final scope confirmed before work begins", "No hidden template or setup charges", "A clear proposal tailored to the project"];
+const pricingFaqs = [
+  ["Are the package prices fixed?", "The listed amounts are starting ranges for the included scope. Your proposal confirms the final price after we understand the page count, functionality, content, integrations, and delivery requirements."],
+  ["Which package should I choose?", "Choose the closest match rather than forcing an exact decision. We will review your goals and recommend the leanest package that can deliver the result properly."],
+  ["Can I start with a smaller package and expand later?", "Yes. We can plan the structure so a landing page or focused business website can grow into additional services, content, dashboards, or automation later."],
+  ["How are project payments structured?", "The payment schedule is confirmed in your proposal before work begins. Larger projects are normally divided into clear milestones so cost and progress remain predictable."],
+  ["Are revisions included?", "Yes. Conversion Launch includes two revision rounds, while Business Authority and Growth Platform include three. Intelligent Scale receives a tailored review schedule based on its scope."],
+  ["Does the AI receptionist require ongoing services?", "Some chatbot, model, CRM, booking, or automation platforms charge ongoing usage fees. We identify those costs before implementation and keep third-party accounts under your control."],
+] as const;
+
+const pricingFaqSchema = {"@context":"https://schema.org","@type":"FAQPage",mainEntity:pricingFaqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))};
 
 export default function PricingPage() {
-  return <><Navbar/><main><section id="top" className="pricing-page-hero"><div className="shell pricing-page-hero-layout"><div><h1>Clear starting ranges.<br/><span>A scope built around you.</span></h1><p>Choose the closest package to understand the likely investment. We will confirm the pages, functionality, integrations, and delivery plan before you commit.</p></div><div className="pricing-hero-note"><h2>What these ranges mean</h2><ul>{scopeNotes.map((note) => <li key={note}><Check size={16}/><span>{note}</span></li>)}</ul></div></div></section><Pricing showHeading={false}/><FAQ/><FinalCta/></main><Footer/></>;
+  return <><Navbar/><main><section id="top" className="pricing-page-hero"><div className="shell pricing-page-hero-layout"><div><h1>Clear starting ranges.<br/><span>A scope built around you.</span></h1><p>Choose the closest package to understand the likely investment. We will confirm the pages, functionality, integrations, and delivery plan before you commit.</p></div><div className="pricing-hero-note"><h2>What these ranges mean</h2><ul>{scopeNotes.map((note) => <li key={note}><Check size={16}/><span>{note}</span></li>)}</ul></div></div></section><Pricing showHeading={false}/><FAQ items={pricingFaqs} title="Straight answers about packages and pricing." copy="Understand what affects the final quote, how projects are structured, and what happens when your needs fall between packages."/><FinalCta/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(pricingFaqSchema).replace(/</g,"\\u003c")}}/></>;
 }
