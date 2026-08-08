@@ -10,11 +10,11 @@ type Status = "idle" | "loading" | "success" | "error";
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${site.email}`;
 
 const budgetOptions = [
-  "$150–$200 — Conversion Launch",
-  "$350–$700 — Business Authority",
-  "$900–$1,300 — Growth Platform",
-  "$1,500–$2,500 — Intelligent Scale",
-  "Not sure yet",
+  "< $500",
+  "$500–$1,000",
+  "$1,000–$1,500",
+  "$1,500–$2,500",
+  "$2,500+",
 ];
 
 export function ContactForm({ standalone = false }: { standalone?: boolean }) {
@@ -66,8 +66,7 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
             <Field name="email" label="Email" type="email" required autoComplete="email"/>
             <Field name="phone" label="Phone" type="tel" autoComplete="tel"/>
             <Field name="website" label="Current website" type="url" placeholder="https://"/>
-            <Select name="budget" label="Package / estimated budget" required options={budgetOptions}/>
-            <div className="hidden sm:block"/>
+            <Select name="budget" label="Estimated budget" required options={budgetOptions}/>
           </div>
           <label className="field mt-5"><span>Project details <b>*</b></span><textarea name="message" required minLength={20} rows={5} placeholder="Which pages or features do you need? Tell us about any dashboard, chatbot, booking, or integration requirements."/></label>
           <input type="text" name="companyWebsite" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true"/>
