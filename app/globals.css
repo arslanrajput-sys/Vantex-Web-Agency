@@ -193,5 +193,5 @@ main>.section{position:relative;isolation:isolate}main>.section:after{content:""
 .nav-quote-button{font-size:.825rem}
 .nav-quote-button>span{font-size:1.05em;line-height:1;filter:drop-shadow(0 0 7px rgba(255,255,255,.65))}
 
-/* Reserve four consistent lines for every package description at all sizes. */
-.pricing-for{min-height:6.8em}
+/* Reserve three consistent lines for every package description at all sizes. */
+.pricing-for{height:5.1em;min-height:5.1em}
