@@ -25,5 +25,5 @@ const schema = [
 ];
 
 export default function Home() {
-  return <><Navbar/><main id="main-content"><Hero/><TrustBar/><ProblemSection/><Services/><Portfolio/><Comparison/><WhyUs/><Process/><Results/><AgencyStandards/><FAQ/><FinalCta/></main><Footer/><JsonLd data={schema}/></>;
+  return <><Navbar/><main id="main-content"><Hero/><TrustBar/><Portfolio/><ProblemSection/><Services/><Comparison/><WhyUs/><Process/><Results/><AgencyStandards/><FAQ/><FinalCta/></main><Footer/><JsonLd data={schema}/></>;
 }

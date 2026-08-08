@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Custom websites for service businesses built to improve trust, generate leads, and turn visitors into customers.",
     start_url: "/",
     display: "standalone",
-    background_color: "#070B14",
-    theme_color: "#070B14",
+    background_color: "#07100f",
+    theme_color: "#07100f",
     icons: [{ src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],
   };
 }
