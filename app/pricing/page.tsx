@@ -4,20 +4,13 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { FAQ } from "@/components/faq";
 import { FinalCta, Pricing } from "@/components/sections";
-import { publicPageRobots } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Pricing & Packages | VantexWeb",
   description: "View website design packages for landing pages, business websites, advanced builds, custom features, and AI integrations.",
-  alternates: { canonical: "/pricing/" },
-  robots: publicPageRobots,
-  openGraph: {
-    title: "Pricing & Packages | VantexWeb",
-    description: "View website design packages for landing pages, business websites, advanced builds, custom features, and AI integrations.",
-    url: "/pricing/",
-    type: "website",
-  },
-};
+  path: "/pricing/",
+});
 
 const scopeNotes = ["Final scope confirmed before work begins", "No hidden template or setup charges", "A clear proposal tailored to the project"];
 const pricingFaqs = [
@@ -29,7 +22,7 @@ const pricingFaqs = [
   ["Does the AI receptionist require ongoing services?", "Some chatbot, model, CRM, booking, or automation platforms charge ongoing usage fees. We identify those costs before implementation and keep third-party accounts under your control."],
 ] as const;
 
-const pricingFaqSchema = {"@context":"https://schema.org","@type":"FAQPage",mainEntity:pricingFaqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))};
+const pricingFaqSchema = [{"@context":"https://schema.org","@type":"FAQPage",mainEntity:pricingFaqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))}, breadcrumbSchema("Pricing", "/pricing/")];
 
 export default function PricingPage() {
   return <><Navbar/><main><section id="top" className="pricing-page-hero"><div className="shell pricing-page-hero-layout"><div><h1>Clear starting ranges.<br/><span>A scope built around you.</span></h1><p>Choose the closest package to understand the likely investment. We will confirm the pages, functionality, integrations, and delivery plan before you commit.</p></div><div className="pricing-hero-note"><h2>What these ranges mean</h2><ul>{scopeNotes.map((note) => <li key={note}><Check size={16}/><span>{note}</span></li>)}</ul></div></div></section><Pricing showHeading={false}/><FAQ items={pricingFaqs} title="Straight answers about packages and pricing." copy="Understand what affects the final quote, how projects are structured, and what happens when your needs fall between packages."/><FinalCta/></main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(pricingFaqSchema).replace(/</g,"\\u003c")}}/></>;

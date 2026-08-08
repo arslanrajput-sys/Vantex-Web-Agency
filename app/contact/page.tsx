@@ -4,29 +4,22 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ContactForm } from "@/components/contact-form";
 import { site } from "@/lib/site";
-import { publicPageRobots } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Get a Free Website Quote | VantexWeb",
   description: "Tell us about your project and get a free website quote for custom web design, redesign, landing pages, SEO, or AI integration.",
-  alternates: { canonical: "/contact/" },
-  robots: publicPageRobots,
-  openGraph: {
-    title: "Get a Free Website Quote | VantexWeb",
-    description: "Tell us about your project and get a free website quote for custom web design, redesign, landing pages, SEO, or AI integration.",
-    url: "/contact/",
-    type: "website",
-  },
-};
+  path: "/contact/",
+});
 
-const contactSchema = {
+const contactSchema = [{
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact VantexWeb",
   url: `${site.url}/contact/`,
   description: "Contact VantexWeb about a web design and development project.",
   mainEntity: { "@id": `${site.url}/#organization` },
-};
+}, breadcrumbSchema("Contact", "/contact/")];
 
 const nextSteps = [
   ["01", "We read the context", "Your message is reviewed as a real project brief—not dropped into an automated sales sequence."],

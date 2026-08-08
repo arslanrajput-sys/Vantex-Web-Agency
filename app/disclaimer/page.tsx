@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/lib/site";
-import { publicPageRobots } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Website Disclaimer | VantexWeb",
   description: "Read the VantexWeb disclaimer covering website information, third-party resources, service results, and liability limitations.",
-  alternates: { canonical: "/disclaimer/" },
-  robots: publicPageRobots,
-};
+  path: "/disclaimer/",
+});
 
 export default function DisclaimerPage() {
   return (
-    <main className="min-h-screen bg-ink">
+    <main id="top" className="min-h-screen bg-ink">
       <header className="border-b border-line"><div className="shell flex h-[76px] items-center justify-between"><Logo/><Link className="text-link" href="/">Back to home</Link></div></header>
       <article className="legal-copy shell py-16 md:py-24">
         <h1>Disclaimer</h1><p className="legal-date">Last updated: August 7, 2026</p>
@@ -23,6 +23,7 @@ export default function DisclaimerPage() {
         <h2>Contact and decisions</h2><p>Submitting an inquiry does not create a client relationship. Before making a business, legal, financial, or technical decision, consider advice that is appropriate to your circumstances. For questions about this website, contact <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
         <h2>Updates</h2><p>We may update this disclaimer as the website or our services change. The date above reflects the most recent revision.</p>
       </article>
+      <JsonLd data={breadcrumbSchema("Website Disclaimer", "/disclaimer/")}/>
     </main>
   );
 }

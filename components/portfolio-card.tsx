@@ -7,7 +7,7 @@ export function PortfolioCard({ project, featured = false }: { project: Portfoli
     <article className={`portfolio-card ${featured ? "portfolio-card-featured" : ""}`}>
       <a className="portfolio-media" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} live website (opens in a new tab)`}>
         <div className="portfolio-browser"><span/><span/><span/><b>{project.domain}</b><ExternalLink size={13}/></div>
-        <div className="portfolio-screen"><Image src={project.image} width={1200} height={750} loading="lazy" alt={project.alt}/></div>
+        <div className="portfolio-screen"><Image src={project.image} width={1200} height={750} loading="lazy" decoding="async" sizes={featured ? "(min-width: 1024px) 65vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"} alt={project.alt}/></div>
       </a>
       <div className="portfolio-copy">
         <div className="portfolio-meta"><span>{project.type}</span>{featured && <strong>Featured launch</strong>}</div>

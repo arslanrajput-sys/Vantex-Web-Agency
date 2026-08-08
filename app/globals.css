@@ -196,3 +196,9 @@ main>.section{position:relative;isolation:isolate}main>.section:after{content:""
 /* Reserve three consistent lines for every package description at all sizes. */
 .pricing-for{height:5.1em;min-height:5.1em}
 .pricing-divider{margin-top:18px}
+
+/* Technical accessibility and decorative-control semantics. */
+.skip-link{position:fixed;z-index:100;left:20px;top:14px;transform:translateY(-160%);border-radius:10px;background:#F4F7FC;padding:10px 14px;font-size:13px;font-weight:800;color:#070B14;transition:transform .2s}.skip-link:focus{transform:translateY(0);outline:2px solid #20D9FF;outline-offset:3px}
+.canvas-nav .canvas-start{width:auto;height:auto;border-radius:6px;background:#F4F7FC;padding:6px 9px;font-size:6px;font-weight:900;line-height:1;color:#070B14}
+.canvas-cta{display:block;width:80px;height:27px;margin-top:18px;border-radius:6px;background:linear-gradient(90deg,#168BFF,#20D9FF)}
+.comparison-preview-cta{display:block;width:72px;height:25px;margin-top:17px;border-radius:6px;background:linear-gradient(135deg,var(--accent,#168BFF),var(--accent2,#20D9FF))}

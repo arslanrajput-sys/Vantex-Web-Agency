@@ -81,8 +81,8 @@ Public contact details are centralized in `lib/site.ts`. The AJAX FormSubmit des
 - FAQ content: `components/faq-data.ts`, in `faqs`
 - Logo: `public/logo.svg` and `components/logo.tsx`
 - HD horizontal logo master: `public/vantexweb-logo-hd.png`
-- SEO metadata: `app/layout.tsx`
-- Structured data: `app/page.tsx`
+- Shared SEO metadata, social cards, robots directives, and site-wide schema: `lib/seo.ts`
+- Page-specific metadata and structured data: each route under `app/`
 
 ## Deployment structure
 

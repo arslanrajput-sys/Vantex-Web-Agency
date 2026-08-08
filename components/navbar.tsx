@@ -59,7 +59,7 @@ export function Navbar() {
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
       </nav>
-      <div id="mobile-menu" className={`overflow-hidden border-line bg-ink/98 transition-[max-height,border] duration-300 lg:hidden ${open ? "max-h-[520px] border-t" : "max-h-0 border-t-0"}`}>
+      <div id="mobile-menu" aria-hidden={!open} inert={!open} className={`overflow-hidden border-line bg-ink/98 transition-[max-height,border] duration-300 lg:hidden ${open ? "max-h-[520px] border-t" : "max-h-0 border-t-0"}`}>
         <div className="shell flex flex-col gap-1 py-5">
           {links.map((link) => <Link key={link.label} href={isHome && link.href.startsWith("/#") ? link.href.slice(1) : link.href} aria-current={isLinkActive(link) ? "page" : undefined} onClick={() => setOpen(false)} className={`rounded-xl px-3 py-3 text-base font-semibold transition hover:bg-card hover:text-copy ${isLinkActive(link) ? "bg-card text-copy" : "text-soft"}`}>{link.label}</Link>)}
           <Link className="button nav-quote-button mt-3" href={quoteHref} onClick={() => setOpen(false)}><span aria-hidden="true">✦</span> Request a Free Quote</Link>

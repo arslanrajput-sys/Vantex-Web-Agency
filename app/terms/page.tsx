@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
-import { publicPageRobots } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Use | VantexWeb",
   description: "Review the terms and conditions governing use of the VantexWeb website, services, content, and related online resources.",
-  alternates: { canonical: "/terms/" },
-  robots: publicPageRobots,
-};
+  path: "/terms/",
+});
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-ink">
+    <main id="top" className="min-h-screen bg-ink">
       <header className="border-b border-line"><div className="shell flex h-[76px] items-center justify-between"><Logo/><Link className="text-link" href="/">Back to home</Link></div></header>
       <article className="legal-copy shell py-16 md:py-24">
         <p className="section-label">Legal</p><h1>Terms of Use</h1><p className="legal-date">Last updated: August 7, 2026</p>
@@ -22,6 +22,7 @@ export default function TermsPage() {
         <h2>Availability and liability</h2><p>We work to keep this site accurate and available, but cannot guarantee uninterrupted access. To the extent permitted by law, VantexWeb is not liable for loss arising solely from use of this informational website.</p>
         <h2>Changes</h2><p>We may update these terms when the website or our practices change. Continued use after an update means you accept the revised terms.</p>
       </article>
+      <JsonLd data={breadcrumbSchema("Terms of Use", "/terms/")}/>
     </main>
   );
 }

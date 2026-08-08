@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/lib/site";
-import { publicPageRobots } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy | VantexWeb",
   description: "Read how VantexWeb collects, uses, protects, and manages information submitted through our website and contact forms.",
-  alternates: { canonical: "/privacy/" },
-  robots: publicPageRobots,
-};
+  path: "/privacy/",
+});
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-ink">
+    <main id="top" className="min-h-screen bg-ink">
       <header className="border-b border-line"><div className="shell flex h-[76px] items-center justify-between"><Logo/><Link className="text-link" href="/">Back to home</Link></div></header>
       <article className="legal-copy shell py-16 md:py-24">
         <p className="section-label">Legal</p><h1>Privacy Policy</h1><p className="legal-date">Last updated: August 7, 2026</p>
@@ -23,6 +23,7 @@ export default function PrivacyPage() {
         <h2>Retention and choices</h2><p>We retain inquiry details only as long as reasonably needed for business and legal purposes. You can request access, correction, or deletion by emailing <a href={`mailto:${site.email}`}>{site.email}</a> or calling <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a>.</p>
         <h2>Updates</h2><p>We may update this policy as our services change. The date above shows the latest revision.</p>
       </article>
+      <JsonLd data={breadcrumbSchema("Privacy Policy", "/privacy/")}/>
     </main>
   );
 }

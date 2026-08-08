@@ -43,7 +43,7 @@ export function Hero() {
           <div className="hero-proof"><span><Check size={14}/> Direct collaboration</span><span><Check size={14}/> Built for real buyers</span><span><Check size={14}/> No recycled templates</span></div>
         </div>
 
-        <div ref={stageRef} onPointerMove={tilt} onPointerLeave={resetTilt} className="creative-stage" aria-label="Interactive VantexWeb conversion design system preview">
+        <div ref={stageRef} onPointerMove={tilt} onPointerLeave={resetTilt} className="creative-stage" role="img" aria-label="VantexWeb conversion-focused website design system preview">
           <div className="stage-spotlight"/><div className="orbit orbit-one"><i/><i/><i/></div><div className="orbit orbit-two"><i/><i/></div>
           <div className="stage-label stage-label-top"><span>LIVE EXPERIENCE</span><i/></div>
           <div className="stage-window">
@@ -51,9 +51,9 @@ export function Hero() {
             <div className="window-body">
               <aside><div className="mini-mark">V</div>{[0,1,2,3].map(n=><i key={n}/>)}</aside>
               <div className="window-canvas">
-                <div className="canvas-nav"><b>BRAND / 001</b><span/><span/><button aria-label="Decorative navigation button">START</button></div>
+                <div className="canvas-nav"><b>BRAND / 001</b><span/><span/><span className="canvas-start">START</span></div>
                 <div className="canvas-main">
-                  <div><small>THE BUSINESS ADVANTAGE</small><strong>Clarity that<br/><em>creates action.</em></strong><p/><p/><button aria-label="Decorative call to action"/></div>
+                  <div><small>THE BUSINESS ADVANTAGE</small><strong>Clarity that<br/><em>creates action.</em></strong><p/><p/><span className="canvas-cta"/></div>
                   <div className="conversion-orb"><span>+ SIGNAL</span><div className="orb-core"><i/><i/></div></div>
                 </div>
                 <div className="canvas-metrics"><div><small>MESSAGE</small><b>Crystal clear</b></div><div><small>EXPERIENCE</small><b>Frictionless</b></div><div><small>OUTCOME</small><b>More action</b></div></div>
