@@ -66,7 +66,6 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
             <Field name="email" label="Email" type="email" required autoComplete="email"/>
             <Field name="phone" label="Phone" type="tel" autoComplete="tel"/>
             <Field name="website" label="Current website" type="url" placeholder="https://"/>
-            <Select name="businessType" label="Business type" required options={["Local service business","Professional services","Home services","Restaurant / hospitality","Startup / SaaS","Calculator or content platform","Other"]}/>
             <Select name="budget" label="Package / estimated budget" required options={budgetOptions}/>
             <div className="hidden sm:block"/>
           </div>
