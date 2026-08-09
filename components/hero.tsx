@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowDownRight, ArrowRight, Check } from "lucide-react";
 
 export function Hero() {
@@ -30,9 +29,10 @@ export function Hero() {
           </aside>
         </div>
         <div className="hero-showcase" aria-hidden="true">
-          <div className="hero-showcase-back"><Image src="/portfolio/the-fade-room.webp" width={1200} height={750} alt="" sizes="(min-width: 1024px) 360px, 70vw"/></div>
-          <div className="hero-showcase-main"><Image src="/portfolio/ultra-roofer.webp" width={1200} height={750} priority alt="" sizes="(min-width: 1024px) 430px, 78vw"/></div>
-          <div className="hero-showcase-caption"><span>Featured build</span><strong>Ultra Roofer</strong><small>Brand clarity, local trust, fast inquiries.</small></div>
+          <div className="hero-showcase-grid"/>
+          <div className="hero-showcase-mark"><svg viewBox="0 0 104 96"><path d="M8 25h20.5L47 57.5 59.2 35H75L51.8 79.2c-2 3.9-7.5 4.1-9.8.3L8 25Z"/><path d="m44 72 15.8-29.1L68.2 60 83.8 23H96L69.1 79 59.8 61.6l-8 16.2c-2.1 4.2-7.2 4.1-9.5.2l-1.2-2.1L44 72Z"/></svg></div>
+          <div className="hero-showcase-orbit"><span/><i/><b/></div>
+          <div className="hero-showcase-message"><span>Built around your business</span><strong>Clarity that creates action.</strong><small>Strategy · Design · Development</small></div>
           <div className="hero-showcase-outcomes"><span>Clear</span><span>Credible</span><span>Ready to act</span></div>
         </div>
       </div>
