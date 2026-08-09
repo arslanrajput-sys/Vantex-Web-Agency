@@ -14,7 +14,7 @@ export const metadata: Metadata = createPageMetadata({
 
 const scopeNotes = ["Final scope confirmed before work begins", "No hidden template or setup charges", "A clear proposal tailored to the project"];
 const pricingFaqs = [
-  ["Are the package prices fixed?", "The listed price covers the package scope shown. Optional pages, custom functionality, paid services, and third-party integrations are quoted separately before work begins."],
+  ["Are the package prices fixed?", "The first three prices cover the package scope shown. Intelligent Scale is custom-quoted after we review the website, AI receptionist, and integration requirements. Optional work is always priced before the project begins."],
   ["Which package should I choose?", "Choose the closest match rather than forcing an exact decision. We will review your goals and recommend the leanest package that can deliver the result properly."],
   ["Can I start with a smaller package and expand later?", "Yes. We can plan the structure so a landing page or focused business website can grow into additional services, content, dashboards, or automation later."],
   ["How are project payments structured?", "The payment schedule is confirmed in your proposal before work begins. Larger projects are normally divided into clear milestones so cost and progress remain predictable."],
