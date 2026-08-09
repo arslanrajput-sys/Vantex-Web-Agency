@@ -9,7 +9,6 @@ import { Logo } from "./logo";
 const links = [
   {label:"Services",href:"/services",section:"services"},
   {label:"Portfolio",href:"/portfolio",section:"portfolio"},
-  {label:"Process",href:"/#process",section:"process"},
   {label:"Pricing",href:"/pricing",section:"pricing"},
   {label:"About",href:"/about",section:"about"},
   {label:"Contact",href:"/contact",section:"contact"},
