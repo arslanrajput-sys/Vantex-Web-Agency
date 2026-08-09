@@ -3,10 +3,16 @@
   "name": "vantex-web-agency",
   "main": "./worker.ts",
   "compatibility_date": "2026-08-07",
+  "vars": {
+    "RESEND_FROM_EMAIL": "VantexWeb Studio <hello@vantexwebstudio.com>"
+  },
+  "secrets": {
+    "required": ["RESEND_API_KEY"]
+  },
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/autoresponse", "/api/autoresponse/"],
+    "run_worker_first": ["/api/contact", "/api/contact/"],
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
