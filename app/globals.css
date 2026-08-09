@@ -9,8 +9,8 @@
   --surface:#0b1514;
   --surface-2:#101b19;
   --text:#f1f4f2;
-  --text-secondary:#9aa5a2;
-  --text-muted:#697572;
+  --text-secondary:#a7b2af;
+  --text-muted:#7d8b87;
   --line:rgba(255,255,255,.085);
   --line-strong:rgba(255,255,255,.15);
   --accent:#20857b;
@@ -34,15 +34,15 @@ main{display:block}
 section[id],article[id]{scroll-margin-top:88px}
 
 @layer components{
-  .shell{@apply mx-auto w-full;max-width:1400px;padding-inline:clamp(20px,4.15vw,72px)}
+  .shell{@apply mx-auto w-full;max-width:1240px;padding-inline:clamp(20px,3.5vw,48px)}
   .section{@apply py-20 md:py-28}
-  .editorial-section{padding-block:clamp(88px,9vw,150px);border-top:1px solid var(--line)}
-  .button{@apply inline-flex items-center justify-center gap-2 text-center font-bold;min-height:50px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);padding:12px 22px;color:#f7fbf9;font-size:14px;transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
+  .editorial-section{padding-block:clamp(84px,7vw,112px);border-top:1px solid var(--line)}
+  .button{@apply inline-flex items-center justify-center gap-2 text-center font-bold;min-height:50px;border:1px solid var(--accent);border-radius:6px;background:var(--accent);padding:12px 22px;color:#f7fbf9;font-size:15px;transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease)}
   .button:hover{transform:translateY(-2px);border-color:var(--accent-hover);background:var(--accent-hover)}
   .button svg,.button-secondary svg,.text-link svg{transition:transform .25s var(--ease)}
   .button:hover svg,.button-secondary:hover svg,.text-link:hover svg{transform:translateX(4px)}
-  .button-sm{min-height:42px;padding:9px 16px;font-size:13px}
-  .button-secondary{@apply inline-flex items-center justify-center gap-2 text-center font-semibold;min-height:50px;border:1px solid var(--line-strong);border-radius:6px;background:transparent;padding:12px 22px;color:var(--text);font-size:14px;transition:border-color .25s var(--ease),background .25s var(--ease),transform .25s var(--ease)}
+  .button-sm{min-height:44px;padding:9px 17px;font-size:14px}
+  .button-secondary{@apply inline-flex items-center justify-center gap-2 text-center font-semibold;min-height:50px;border:1px solid var(--line-strong);border-radius:6px;background:transparent;padding:12px 22px;color:var(--text);font-size:15px;transition:border-color .25s var(--ease),background .25s var(--ease),transform .25s var(--ease)}
   .button-secondary:hover{transform:translateY(-2px);border-color:rgba(79,168,159,.58);background:rgba(255,255,255,.035)}
   .text-link{@apply inline-flex items-center gap-2 font-semibold;min-height:44px;color:var(--text);font-size:14px;transition:color .2s var(--ease)}
   .text-link:hover{color:#68b9b0}
@@ -64,6 +64,4 @@ section[id],article[id]{scroll-margin-top:88px}
 .section-heading-center .section-copy{margin-inline:auto}
 .section-label{margin-bottom:14px;color:var(--text-muted);font-size:13px}
 
-.motion-ready [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.motion-ready [data-reveal].is-revealed{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.motion-ready [data-reveal]{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

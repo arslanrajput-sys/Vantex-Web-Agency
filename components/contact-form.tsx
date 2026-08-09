@@ -65,7 +65,7 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
             <Field name="phone" label="Phone" type="tel" required autoComplete="tel"/>
             <Field name="email" label="Email" type="email" required autoComplete="email"/>
             <Field name="businessName" label="Business name (optional)" autoComplete="organization"/>
-            <Select name="inquiryType" label="Inquiry type" options={["Website Redesign","Landing Page","Complete Website","Advanced Website with Dashboard","Website with AI Receptionist Chatbot","Other"]}/>
+            <Select name="inquiryType" label="Inquiry type" options={["Website Redesign","Landing Page","Complete Business Website","Advanced Website with Dashboard","Website with AI Receptionist Chatbot","Other"]}/>
             <Select name="budget" label="Estimated budget" required options={budgetOptions}/>
           </div>
           <label className="field mt-5"><span>Project details <b>*</b></span><textarea name="message" required minLength={20} rows={5} placeholder="Which pages or features do you need? Tell us about any dashboard, AI receptionist chatbot, booking, or integration requirements."/></label>

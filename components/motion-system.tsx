@@ -1,22 +1,27 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function MotionSystem() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealTargets = document.querySelectorAll<HTMLElement>("[data-reveal]");
 
-    if (reduced) {
-      revealTargets.forEach((element) => element.classList.add("is-revealed"));
-      return;
-    }
+    if (reduced || !("IntersectionObserver" in window) || !("animate" in Element.prototype)) return;
 
-    document.documentElement.classList.add("motion-ready");
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-revealed");
+          entry.target.animate(
+            [
+              { opacity: 0.86, transform: "translateY(12px)" },
+              { opacity: 1, transform: "translateY(0)" },
+            ],
+            { duration: 520, easing: "cubic-bezier(.22,1,.36,1)" }
+          );
           observer.unobserve(entry.target);
         }
       }),
@@ -26,9 +31,8 @@ export function MotionSystem() {
 
     return () => {
       observer.disconnect();
-      document.documentElement.classList.remove("motion-ready");
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
