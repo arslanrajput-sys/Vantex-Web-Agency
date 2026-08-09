@@ -40,7 +40,7 @@ export function Process() {
 const outcomes = ["Make a stronger first impression","Increase trust with potential customers","Make every service easier to understand","Generate more calls and inquiries","Give mobile visitors a smoother path","Support advertising and local SEO campaigns"];
 
 export function Results() {
-  return <section className="editorial-section outcomes-section"><div className="shell"><div className="outcomes-header"><h2>Better design is valuable when it makes business easier.</h2><p>We do not promise a magic conversion number. We build the clarity, credibility, and momentum your marketing needs to perform at its best.</p></div><ul className="outcomes-list">{outcomes.map((outcome,index)=><li key={outcome} data-reveal><span>{String(index+1).padStart(2,"0")}</span>{outcome}</li>)}</ul></div></section>;
+  return <section id="outcomes" className="editorial-section outcomes-section"><div className="shell"><div className="outcomes-header"><h2>Better design is valuable when it makes business easier.</h2><p>We do not promise a magic conversion number. We build the clarity, credibility, and momentum your marketing needs to perform at its best.</p></div><ul className="outcomes-list">{outcomes.map((outcome,index)=><li key={outcome} data-reveal><span>{String(index+1).padStart(2,"0")}</span>{outcome}</li>)}</ul></div></section>;
 }
 
 const packages = [
