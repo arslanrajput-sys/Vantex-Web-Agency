@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
@@ -24,29 +23,11 @@ export function Hero() {
               View Our Work <ArrowUpRight size={17} aria-hidden="true" />
             </Link>
           </div>
+          <p className="hero-note">
+            <span aria-hidden="true" />
+            No templates. No handoffs. Built around your business.
+          </p>
         </div>
-
-        <Link
-          href="/portfolio"
-          className="hero-browser"
-          aria-label="View the VantexWeb portfolio"
-        >
-          <span className="hero-browser-bar" aria-hidden="true">
-            <span className="hero-browser-controls"><i /><i /><i /></span>
-            <span className="hero-browser-address">thefaderoom.com</span>
-            <span className="hero-browser-open"><ArrowUpRight size={15} /></span>
-          </span>
-          <span className="hero-browser-canvas">
-            <Image
-              src="/portfolio/the-fade-room.webp"
-              alt="The Fade Room barber studio website designed by VantexWeb"
-              width={1200}
-              height={750}
-              priority
-              sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1200px) calc(100vw - 80px), 1120px"
-            />
-          </span>
-        </Link>
       </div>
     </section>
   );
