@@ -9,7 +9,7 @@ export function Hero() {
       <div className="shell hero-centered">
         <div className="hero-copy">
           <h1 className="hero-mega-title">
-            Your business deserves a website that looks this good.
+            Turn More Website Visitors Into Real Paying Customers
           </h1>
           <p className="hero-lede">
             We design custom websites that make your business look professional,
