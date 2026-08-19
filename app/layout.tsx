@@ -10,6 +10,7 @@ import "./globals.css";
 import "@/styles/components.css";
 import "@/styles/pages.css";
 import "@/styles/responsive.css";
+import "@/styles/mobile-fixes.css";
 
 const instrument = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument", display: "swap" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", display: "swap" });
