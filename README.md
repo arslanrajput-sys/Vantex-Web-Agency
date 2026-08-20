@@ -24,6 +24,12 @@ This repository is configured for the Cloudflare **Worker Builds** screen shown 
 
 No output-directory field is needed. `wrangler.jsonc` already points Cloudflare to `./out` through `assets.directory`.
 
+### Required Workers Build cache setting
+
+In Cloudflare, open **Workers & Pages > vantex-web-agency > Settings > Build > Build cache** and select **Enable**. This setting belongs to the Workers Builds trigger and cannot be enabled from `wrangler.jsonc`.
+
+With caching enabled, Cloudflare automatically persists npm's `.npm` cache and Next.js's `.next/cache` between builds. Do not commit either directory; the repository's `.gitignore` intentionally excludes `.next/`. Keep the build command as `npm run build`. The committed `package-lock.json` already makes dependency resolution reproducible, and replacing Cloudflare's automatic install with `npm ci` would rebuild `node_modules` on every run rather than reuse a cached install.
+
 The build and deployment sequence is:
 
 ```bash
