@@ -16,7 +16,7 @@ export function Services() {
 }
 
 export function Portfolio() {
-  const featuredProjects = portfolioProjects.filter((project)=>project.homeFeatured);
+  const featuredProjects = portfolioProjects.filter((project)=>project.homeFeatured).sort((a,b)=>(a.homeOrder ?? 99)-(b.homeOrder ?? 99));
   return <section id="work" className="portfolio-editorial"><div className="shell"><div className="portfolio-intro"><div><p>Selected work</p><h2>Real websites, designed around the job they need to do.</h2></div><div><p>A focused selection of live builds across service businesses and interactive products. Every preview opens the real website.</p><span>Strategy, design, development, and launch—connected from the first idea to the finished experience.</span></div></div><div className="portfolio-list portfolio-list-home">{featuredProjects.map((project,index)=><PortfolioCard key={project.name} project={project} featured={index===0}/>)}</div><div className="portfolio-home-footer"><p>Want a closer look at the full body of work?</p><Link href="/portfolio" className="button-secondary">Explore the complete portfolio <ArrowRight size={17}/></Link></div></div></section>;
 }
 
