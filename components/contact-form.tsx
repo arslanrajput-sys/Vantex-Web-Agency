@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
-import { AlertCircle, ArrowRight, CheckCircle2, LoaderCircle, Mail, MessageSquareText, Phone } from "lucide-react";
+import { AlertCircle, ArrowRight, CheckCircle2, LoaderCircle, Mail, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { SectionHeading } from "./section-heading";
 
@@ -49,7 +49,7 @@ export function ContactForm({ standalone = false }: { standalone?: boolean }) {
       <div className="shell grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
         <div>
           <SectionHeading label={standalone ? "Your project brief" : "Start a conversation"} title={standalone ? "Give us enough context to make the first reply useful." : "Tell us what you are building—and where the current website falls short."} copy={standalone ? "You do not need a finished specification. Share the business, the goal, the important features, and what is not working today." : "Share the essentials below. We will review the project ourselves, ask the useful questions, and come back with a clear recommendation for scope and next steps."}/>
-          <div className="mt-8 space-y-4"><div className="contact-note"><MessageSquareText/><div><strong>A real project review</strong><span>No automated audit and no generic sales script. Your message is read by the person who would help shape the work.</span></div></div><div className="contact-note"><Mail/><div><strong>Email us directly</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></div><div className="contact-note"><Phone/><div><strong>Prefer to talk?</strong><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></div></div></div>
+          <div className="mt-8 space-y-4"><div className="contact-note"><Mail/><div><strong>Email us directly</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></div><div className="contact-note"><Phone/><div><strong>Prefer to talk?</strong><a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></div></div></div>
         </div>
         <form action="/api/contact" method="POST" onSubmit={submit} className="contact-card" noValidate>
           <div className="grid gap-5 sm:grid-cols-2">
