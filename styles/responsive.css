@@ -55,7 +55,6 @@
   .trust-item{font-size:11px}.trust-item span{font-size:11px}
   .diagnostic-list li,.value-list li,.process-list li,.relationship-layout li{grid-template-columns:44px 1fr}
   .pricing-card{padding-inline:20px}.pricing-price strong{font-size:2.45rem}.pricing-name{font-size:21px}
-  .portfolio-media{clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}.portfolio-corner{width:20px;height:20px}
   .contact-card .grid{grid-template-columns:1fr}.contact-card .button{width:100%}
   .footer-main{grid-template-columns:1fr}.footer-brand,.footer-connect{grid-column:auto}
 }
